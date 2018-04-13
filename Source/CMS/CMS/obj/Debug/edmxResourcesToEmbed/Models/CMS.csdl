@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDSHDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BDSHDEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AlbumImages" EntityType="BDSHDModel.AlbumImage" />
+    <EntitySet Name="AspNetRoles" EntityType="BDSHDModel.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="BDSHDModel.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="BDSHDModel.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="BDSHDModel.AspNetUser" />
+    <EntitySet Name="Banners" EntityType="BDSHDModel.Banner" />
+    <EntitySet Name="CategoryPosts" EntityType="BDSHDModel.CategoryPost" />
+    <EntitySet Name="CategoryProjects" EntityType="BDSHDModel.CategoryProject" />
+    <EntitySet Name="Duongs" EntityType="BDSHDModel.Duong" />
+    <EntitySet Name="HoSoPhapLyBDS" EntityType="BDSHDModel.HoSoPhapLyBD" />
+    <EntitySet Name="HuongBDS" EntityType="BDSHDModel.HuongBD" />
+    <EntitySet Name="Huyens" EntityType="BDSHDModel.Huyen" />
+    <EntitySet Name="ImageBanners" EntityType="BDSHDModel.ImageBanner" />
+    <EntitySet Name="ImageProjects" EntityType="BDSHDModel.ImageProject" />
+    <EntitySet Name="ImageTinBDS" EntityType="BDSHDModel.ImageTinBD" />
+    <EntitySet Name="InfoCompanies" EntityType="BDSHDModel.InfoCompany" />
+    <EntitySet Name="ItemAlbumImages" EntityType="BDSHDModel.ItemAlbumImage" />
+    <EntitySet Name="KhoangTienBDS" EntityType="BDSHDModel.KhoangTienBD" />
+    <EntitySet Name="LoaiBDS" EntityType="BDSHDModel.LoaiBD" />
+    <EntitySet Name="MucDichBDS" EntityType="BDSHDModel.MucDichBD" />
+    <EntitySet Name="Posts" EntityType="BDSHDModel.Post" />
+    <EntitySet Name="Projects" EntityType="BDSHDModel.Project" />
+    <EntitySet Name="TinBDS" EntityType="BDSHDModel.TinBD" />
+    <EntitySet Name="Tinhs" EntityType="BDSHDModel.Tinh" />
+    <EntitySet Name="Videos" EntityType="BDSHDModel.Video" />
+    <EntitySet Name="Xas" EntityType="BDSHDModel.Xa" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="BDSHDModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="BDSHDModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="BDSHDModel.AspNetUserRoles">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AlbumImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Published" Type="Boolean" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageBanner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="MetaDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MetaKewords" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Robots" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TimeCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Views" Type="Double" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="BDSHDModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="BDSHDModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="BDSHDModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="GoogleAuthenticatorSecretKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsGoogleAuthenticatorEnabled" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="BDSHDModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="BDSHDModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+    <NavigationProperty Name="AspNetRoles" Relationship="BDSHDModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+  </EntityType>
+  <EntityType Name="Banner">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CategoryPost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Published" Type="Boolean" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageBanner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="MetaDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MetaKewords" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Robots" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TimeCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CategoryProject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Published" Type="Boolean" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageBanner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="MetaDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MetaKewords" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Robots" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TimeCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Duong">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ten" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="HuyenId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HoSoPhapLyBD">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Ten" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="STT" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HuongBD">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Ten" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="STT" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Huyen">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TinhId" Type="Int32" />
+    <Property Name="STT" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ImageBanner">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BannerId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ImageProject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ImageTinBD">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TinBDSId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="InfoCompany">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameCompany" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Intro" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="Tel" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Hotline" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MasoThue" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Website" Type="String" MaxLength="1025" FixedLength="false" Unicode="true" />
+    <Property Name="Facebook" Type="String" MaxLength="1025" FixedLength="false" Unicode="true" />
+    <Property Name="Youtube" Type="String" MaxLength="1025" FixedLength="false" Unicode="true" />
+    <Property Name="Twitter" Type="String" MaxLength="1025" FixedLength="false" Unicode="true" />
+    <Property Name="GooglePlus" Type="String" MaxLength="1025" FixedLength="false" Unicode="true" />
+    <Property Name="Pinterest" Type="String" MaxLength="1025" FixedLength="false" Unicode="true" />
+    <Property Name="Map" Type="String" MaxLength="1025" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ItemAlbumImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AlbumId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="KhoangTienBD">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Ten" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Min" Type="Double" />
+    <Property Name="Max" Type="Double" />
+    <Property Name="STT" Type="Int32" />
+  </EntityType>
+  <EntityType Name="LoaiBD">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Ten" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="STT" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MucDichBD">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Ten" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="STT" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Published" Type="Boolean" Nullable="false" />
+    <Property Name="Featured" Type="Boolean" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageBanner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="MetaDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MetaKewords" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Robots" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TimeCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Views" Type="Double" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MucGia" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TongQuan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MatBang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChinhSach" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BanGiao" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Published" Type="Boolean" Nullable="false" />
+    <Property Name="Featured" Type="Boolean" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageBanner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="MetaDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MetaKewords" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Robots" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TimeCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Views" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TinBD">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaBDS" Type="String" MaxLength="53" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="TieuDe" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TinhId" Type="Int32" />
+    <Property Name="HuyenId" Type="Int32" />
+    <Property Name="XaId" Type="Int32" />
+    <Property Name="DuongId" Type="Int32" />
+    <Property Name="LoaiBDSId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="HuongBDSId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="MucDichBDSId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="HoSoPhapLyBDSId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="KhoangTienBDSId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="GiaBan" Type="Double" />
+    <Property Name="DienTichDat" Type="Double" />
+    <Property Name="Published" Type="Boolean" Nullable="false" />
+    <Property Name="Featured" Type="Boolean" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TenNguoiLH" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChiLH" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoaiLH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailLH" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="MetaDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MetaKewords" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Robots" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TimeCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Views" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tinh">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Video">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VideoUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Published" Type="Boolean" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageBanner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="MetaDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MetaKewords" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Robots" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TimeCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Views" Type="Double" />
+  </EntityType>
+  <EntityType Name="Xa">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HuyenId" Type="Int32" />
+    <Property Name="STT" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="BDSHDModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="BDSHDModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaim">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="BDSHDModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="BDSHDModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="BDSHDModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="BDSHDModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+</Schema>

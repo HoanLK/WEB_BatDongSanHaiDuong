@@ -1,0 +1,128 @@
+﻿@model CMS.Models.ListVideoViewModel
+<!--SubHeader-->
+<div id="Subheader">
+    <div class="container">
+        <div class="column one">
+            <h1 class="title" style="color:#2981d6; font-weight: bold">Thư viện Video</h1>
+            <!--BreadCrumbs area-->
+            <ul class="breadcrumbs">
+                <li>
+                    <i class="fa fa-home"></i>
+                    <a href="index.html">Trang chủ</a><span><i class="icon-right-open"></i></span>
+                </li>
+                <li>
+                    <a href="blog-full-classic.html">Thư viện video</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--Content-->
+<div id="Content">
+    <div class="content_wrapper clearfix">
+        <div style="height: 1%; overflow: hidden;">
+            <!--Main-->
+            <div class="sections_group" style="margin-bottom: 30px">
+                <div class="section" style="margin-top: 20px">
+                    <div class="section_wrapper clearfix">
+                        <div class="column one column_portfolio">
+                            <div class="portfolio_wrapper isotope_wrapper">
+                                <ul class="portfolio_group lm_wrapper isotope grid" style="position: relative; height: 856.109px;">
+                                    @foreach (var item in Model.Videos)
+                                    {
+                                        <!-- Portfolio item -->
+                                        <li class="portfolio-item isotope-item category-banner wide tall">
+                                            <div class="portfolio-item-fw-bg flv_style_port_1">
+                                                <div class="portfolio-item-fw-wrapper">
+                                                    <div class="list_style_header">
+                                                        <h3 class="entry-title"><a href="/video/@item.Alias-@item.Id">@item.Title</a></h3>
+                                                        <div class="links_wrapper">
+                                                            <a href="/video/@item.Alias-@item.Id" class="button button_js portfolio_prev_js"><span class="button_icon"><i class="icon-up-open"></i></span></a><a href="/video/@item.Alias-@item.Id" class="button button_js portfolio_next_js"><span class="button_icon"><i class="icon-down-open"></i></span></a><a href="/video/@item.Alias-@item.Id" class="button button_left button_theme button_js"><span class="button_icon"><i class="icon-link"></i></span><span class="button_label">Xem tiếp</span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="image_frame scale-with-grid">
+                                                        <div class="image_wrapper">
+                                                            <a href="portfolio-single-mixed.html">
+                                                                <div class="mask"></div><img width="576" height="450" src="@item.Image" class="scale-with-grid wp-post-image" alt="portfolio_1" />
+                                                            </a>
+                                                            <div class="image_links triple">
+                                                                <a href="@item.Image" class="zoom" rel="prettyphoto"><i class="icon-search"></i></a><a href="/video/@item.Alias-@item.Id" class="external"><i class="fa fa-play-circle-o"></i></a><a href="/video/@item.Alias-@item.Id" class="link"><i class="icon-link"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="desc">
+                                                        <div class="title_wrapper">
+                                                            <h5 class="entry-title"><a href="/video/@item.Alias-@item.Id">@item.Title</a></h5>
+                                                            <div class="button-love">
+                                                                <a href="/video/@item.Alias-@item.Id" class="mfn-love " data-id="207"><span class="icons-wrapper"><i class="fa fa-eye"></i><i class="fa fa-eye"></i></span><span class="label">@item.Views</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                                <!-- One full width row-->
+                                <div class="column one pager_wrapper">
+                                    <!-- Navigation Area -->
+                                    <div class="pager">
+                                        <div class="pages">
+                                            <a href="portfolio-sidebar-grid.html" class="active">1</a>
+                                            <a href="#">2</a><a href="#">3</a>
+                                            <a href="#">4</a>
+                                            <a href="#">5</a>
+                                        </div><a class="next_page" href="#">Next page<i class="icon-right-open"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar area-->
+            @Html.Action("Sidebar1", "Layout")
+        </div>
+
+        <!--Dự án nổi bật-->
+        <div style="height: 1%; overflow: hidden;">
+                <div class="section full-width flv_sections_16" style="margin-bottom:20px;">
+                    <div class="section_wrapper clearfix">
+                        <div class="items_group clearfix">
+                            <div class="column one column_shop_slider">
+                                <div class="shop_slider">
+                                    <div class="blog_slider_header">
+                                        <h4 class="title">Dự án nổi bật</h4><a class="button button_js slider_prev" href="#"><span class="button_icon"><i class="icon-left-open-big"></i></span></a><a class="button button_js slider_next" href="#"><span class="button_icon"><i class="icon-right-open-big"></i></span></a>
+                                    </div>
+                                    <ul class="shop_slider_ul">
+                                        @foreach (var item in Model.DuAnNoiBats)
+                                        {
+                                            <li class="post-287 product type-product has-post-thumbnail shipping-taxable purchasable product-type-simple product-cat-clothing product-cat-hoodies instock">
+                                                <div class="item_wrapper">
+                                                    <div class="image_frame scale-with-grid product-loop-thumb">
+                                                        <div class="image_wrapper">
+                                                            <a href="/du-an/@item.Alias-@item.Id">
+                                                                <div class="mask"></div><img width="500" height="500" src="@item.Image" class="scale-with-grid wp-post-image" alt="hoodie_3_front" />
+                                                            </a>
+                                                            <div class="image_links">
+                                                                <a class="link" href="/du-an/@item.Alias-@item.Id"><i class="icon-link"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="desc">
+                                                        <h4><a href="/du-an/@item.Alias-@item.Id">@item.Title</a></h4><span class="price"><span class="amount">@item.MucGia</span></span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                    </ul>
+                                    <div class="slider_pagination"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

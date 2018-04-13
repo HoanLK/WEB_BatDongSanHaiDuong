@@ -1,0 +1,87 @@
+﻿@model CMS.Models.ShowBaiVietViewModel
+
+<!--SubHeader-->
+<div id="Subheader">
+    <div class="container">
+        <div class="column one">
+            <h1 class="title" style="color:#2981d6; font-weight: bold">@Model.BaiViet.Title</h1>
+            <!--BreadCrumbs area-->
+            <ul class="breadcrumbs">
+                <li>
+                    <i class="fa fa-home"></i>
+                    <a href="index.html">Trang chủ</a><span><i class="icon-right-open"></i></span>
+                </li>
+                <li>
+                    <a href="blog-full-classic.html">Bài viết</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--Content-->
+<div id="Content">
+    <div class="content_wrapper clearfix">
+        <div style="height: 1%; overflow: hidden;">
+            <!--Main-->
+            <div class="sections_group" style="margin-bottom: 30px">
+                <div class="section" style="margin-top: 20px">
+                    <div class="section_wrapper clearfix">
+                        <div class="column one column_blog">
+                            <div class="blog_wrapper isotope_wrapper">
+                                <div class="posts_group lm_wrapper classic">
+                                    @Html.Raw(Model.BaiViet.Content)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar area-->
+            @Html.Action("Sidebar1", "Layout")
+        </div>
+
+        <!--Dự án nổi bật-->
+        <div style="height: 1%; overflow: hidden;">
+            <div class="section section-post-related">
+                <div class="section_wrapper clearfix">
+                    <div class="section-related-adjustment">
+                        <h4>Các bài viết khác</h4>
+                        @foreach (var item in Model.BaiVietKhacs)
+                        {
+                            <div class="column one-fourth post-related post-193 post  format-standard has-post-thumbnail  category-photography category-uncategorized  tag-mysql tag-zend">
+                                <div class="image_frame scale-with-grid">
+                                    <div class="image_wrapper">
+                                        <div id="rev_slider_16_2_wrapper" class="rev_slider_wrapper fullwidthbanner-container flv_rev_20" style="overflow: visible; height: 111px;">
+                                            <div id="rev_slider_16_2" class="rev_slider fullwidthabanner revslider-initialised tp-simpleresponsive" data-version="5.0.4.1" style="margin-top: 0px; margin-bottom: 0px; height: 111px;">
+                                                <ul class="tp-revslider-mainul" style="visibility: visible; display: block; overflow: hidden; width: 230px; height: 100%; max-height: none; left: 0px;">
+                                                    <li data-index="rs-21" data-transition="slidehorizontal" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="@item.Image" data-rotate="0" data-saveperformance="off" data-title="@item.Title" data-description="" class="tp-revslider-slidesli active-revslide" style="width: 100%; height: 100%; overflow: hidden; z-index: 20; visibility: inherit; opacity: 1; background-color: rgba(255, 255, 255, 0);">
+                                                        <div class="slotholder" style="width: 100%; height: 100%; backface-visibility: hidden; left: 0px; top: 0px; position: absolute; transform: translate3d(0px, 0px, 0px); visibility: inherit; opacity: 1;"><div class="tp-bgimg defaultimg" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url(@item.Image); background-size: cover; background-position: center top; width: 100%; height: 100%; opacity: 1; visibility: inherit; z-index: 20;" src="@item.Image"></div></div>
+                                                    </li>
+                                                    <li data-index="rs-22" data-transition="slidehorizontal" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="@item.Image" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="" class="tp-revslider-slidesli" style="width: 100%; height: 100%; overflow: hidden; z-index: 18; visibility: hidden; opacity: 0; background-color: rgba(255, 255, 255, 0);">
+                                                        <div class="slotholder" style="width: 100%; height: 100%; backface-visibility: hidden; left: 0px; top: 0px; position: absolute; transform: translate3d(0px, 0px, 0px); visibility: inherit; opacity: 1;"><div class="tp-bgimg defaultimg" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url(@item.Image); background-size: cover; background-position: center top; width: 100%; height: 100%; opacity: 0; visibility: hidden; z-index: 20;" src="@item.Image"></div></div>
+                                                    </li>
+                                                </ul>
+                                                <div class="tp-bannertimer flv_rev_21" style="width: 61.1222%; visibility: visible; transform: translate3d(0px, 0px, 0px);"></div>
+                                                <div class="tp-loader off" style="display: none;"><div class="dot1"></div><div class="dot2"></div><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div><div class="tp-leftarrow tparrows uranus  noSwipe tp-forcenotvisible" style="top: 50%; transform: matrix(1, 0, 0, 1, 30, -20); left: 0px; visibility: hidden; opacity: 0;"></div><div class="tp-rightarrow tparrows uranus  noSwipe tp-forcenotvisible" style="top: 50%; transform: matrix(1, 0, 0, 1, -70, -20); left: 100%; visibility: hidden; opacity: 0;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="date_label">
+                                    @item.TimeCreated.ToShortDateString()
+                                </div>
+                                <div class="desc">
+                                    <h4><a href="/bai-viet/@Model.DanhMuc.Alias/@item.Alias-@item.Id">@item.Title</a></h4>
+                                    <hr class="hr_color">
+                                    <a href="/bai-viet/@Model.DanhMuc.Alias/@item.Alias-@item.Id" class="button button_left button_js kill_the_icon"><span class="button_icon"><i class="icon-layout"></i></span><span class="button_label">Đọc tiếp</span></a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

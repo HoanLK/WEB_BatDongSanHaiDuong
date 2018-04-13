@@ -1,0 +1,57 @@
+﻿/*DEVEXTREME*/
+.dx-field {
+    font-size: 12px;
+}
+
+.dx-texteditor {
+    border: 1px solid #6b6b6b;
+}
+
+.dx-texteditor-input {
+    padding: 5px;
+    min-height: 25px;
+}
+
+.dx-widget {
+    font-size: 12px;
+}
+
+.dx-radiobutton-icon:before {
+    border: 1px solid #6b6b6b;
+}
+
+.dx-button-has-icon .dx-button-content,
+.dx-toolbar-text-auto-hide .dx-button .dx-button-content {
+    padding: 5px;
+}
+
+.dx-datagrid-header-panel .dx-toolbar {
+    margin-bottom: 4px;
+}
+
+.dx-datagrid.dx-datagrid-borders > .dx-datagrid-pager {
+    margin: 0px;
+}
+
+.dx-datagrid-nowrap.dx-datagrid-headers .dx-header-row > td > .dx-datagrid-text-content {
+    color: #000;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+.dx-pager {
+    padding-top: 5px;
+    padding-bottom: 0px;
+}
+
+.dx-datagrid-content .dx-datagrid-table .dx-row .dx-command-select {
+    width: 40px;
+    min-width: 40px;
+}
+
+.dx-datagrid-total-footer > .dx-datagrid-content{
+    padding-top:0px;
+    padding-bottom: 0px;
+    color:#000;
+
+}

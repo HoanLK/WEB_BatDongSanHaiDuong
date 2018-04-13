@@ -1,0 +1,55 @@
+﻿
+
+<div class="sidebar sidebar-1 four columns" style="width: 25%;">
+    <div class="widget-area clearfix" style="height: auto; min-height:0px !important">
+        <!--Tin tức-->
+        <aside class="widget widget_search">
+            <div class="items_group clearfix">
+                <div class="column one column_column">
+                    <div class="column_attr ">
+                        <a href="#"><h5 class="flv_style_4">TIN TỨC</h5></a>
+                    </div>
+                    <br />
+                    @foreach (var item in Model.TinTucs)
+                    {
+                        <div class="team team_list">
+                            <div class="column one-third">
+                                <div class="image_frame no_link scale-with-grid">
+                                    <div class="image_wrapper">
+                                        <a href="#"><img class="scale-with-grid" src="@item.Image" alt="@item.Title" title="@item.Title" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column two-third" style="width: 66%; margin-right: 0px;">
+                                <div class="desc_wrapper" style="margin-left: 5px;">
+                                    <h6><a href="#" style="font-size: 13px;" title="@item.Title">@item.Title</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </aside>
+
+        <!--Video dự án-->
+        <aside class="widget widget_search">
+            <div class="items_group clearfix">
+                <div class="column one column_column" style="width: 100%;margin-right: 0px;">
+                    <div class="column_attr ">
+                        <a href="#"><h5 class="flv_style_4">VIDEO DỰ ÁN</h5></a>
+                    </div>
+                    <br />
+                    @foreach (var item in Model.Videos)
+                    {
+                        <iframe width="100%" height="auto" src="@item.VideoUrl" frameborder="0" allowfullscreen></iframe>
+                    }
+                </div>
+            </div>
+        </aside>
+
+        <!--Quảng cáo 2-->
+        <aside id="widget_mfn_flickr-2" class="widget widget_mfn_flickr">
+            <img src="~/Content/Frontend/Templates/images/banner_305x437gif.gif" />
+        </aside>
+    </div>
+</div>

@@ -1,0 +1,194 @@
+[
+  {
+    "outputFileName": "Scripts/Backend/AlbumImage/EditAlbumImage.min.html",
+    "inputFiles": [
+      "Scripts/Backend/AlbumImage/EditAlbumImage.html"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/AlbumImage/editAlbumImageController.min.js",
+    "inputFiles": [
+      "Scripts/Backend/AlbumImage/editAlbumImageController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/AlbumImage/ListAlbumImage.min.html",
+    "inputFiles": [
+      "Scripts/Backend/AlbumImage/ListAlbumImage.html"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/AlbumImage/listAlbumImageController.min.js",
+    "inputFiles": [
+      "Scripts/Backend/AlbumImage/listAlbumImageController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/CategoryPost/EditCategoryPost.min.html",
+    "inputFiles": [
+      "Scripts/Backend/CategoryPost/EditCategoryPost.html"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/CategoryPost/editCategoryPostController.min.js",
+    "inputFiles": [
+      "Scripts/Backend/CategoryPost/editCategoryPostController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/CategoryPost/ListCategoryPost.min.html",
+    "inputFiles": [
+      "Scripts/Backend/CategoryPost/ListCategoryPost.html"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/CategoryPost/listCategoryPostController.min.js",
+    "inputFiles": [
+      "Scripts/Backend/CategoryPost/listCategoryPostController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/CategoryProject/EditCategoryProject.min.html",
+    "inputFiles": [
+      "Scripts/Backend/CategoryProject/EditCategoryProject.html"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/CategoryProject/editCategoryProjectController.min.js",
+    "inputFiles": [
+      "Scripts/Backend/CategoryProject/editCategoryProjectController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/CategoryProject/ListCategoryProject.min.html",
+    "inputFiles": [
+      "Scripts/Backend/CategoryProject/ListCategoryProject.html"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/CategoryProject/listCategoryProjectController.min.js",
+    "inputFiles": [
+      "Scripts/Backend/CategoryProject/listCategoryProjectController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/Post/EditPost.min.html",
+    "inputFiles": [
+      "Scripts/Backend/Post/EditPost.html"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/Post/editPostController.min.js",
+    "inputFiles": [
+      "Scripts/Backend/Post/editPostController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/Post/listPostController.min.js",
+    "inputFiles": [
+      "Scripts/Backend/Post/listPostController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/Project/EditProject.min.html",
+    "inputFiles": [
+      "Scripts/Backend/Project/EditProject.html"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/Project/editProjectController.min.js",
+    "inputFiles": [
+      "Scripts/Backend/Project/editProjectController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/Project/ListProject.min.html",
+    "inputFiles": [
+      "Scripts/Backend/Project/ListProject.html"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/Project/listProjectController.min.js",
+    "inputFiles": [
+      "Scripts/Backend/Project/listProjectController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/System/InfoCompany.min.html",
+    "inputFiles": [
+      "Scripts/Backend/System/InfoCompany.html"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/System/infoCompanyController.min.js",
+    "inputFiles": [
+      "Scripts/Backend/System/infoCompanyController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/Video/EditVideo.min.html",
+    "inputFiles": [
+      "Scripts/Backend/Video/EditVideo.html"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/Video/editVideoController.min.js",
+    "inputFiles": [
+      "Scripts/Backend/Video/editVideoController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/Video/ListVideo.min.html",
+    "inputFiles": [
+      "Scripts/Backend/Video/ListVideo.html"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/Video/listVideoController.min.js",
+    "inputFiles": [
+      "Scripts/Backend/Video/listVideoController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/TinBDS/EditTinBDS.min.html",
+    "inputFiles": [
+      "Scripts/Backend/TinBDS/EditTinBDS.html"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/TinBDS/editTinBDSController.min.js",
+    "inputFiles": [
+      "Scripts/Backend/TinBDS/editTinBDSController.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/TinBDS/ListTinBDS.min.html",
+    "inputFiles": [
+      "Scripts/Backend/TinBDS/ListTinBDS.html"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/TinBDS/listTinBDSController.min.js",
+    "inputFiles": [
+      "Scripts/Backend/TinBDS/listTinBDSController.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/Vendors/DevExtreme/Lib/js/dx.all.debug.min.js",
+    "inputFiles": [
+      "Content/Vendors/DevExtreme/Lib/js/dx.all.debug.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/qrcode.min.js",
+    "inputFiles": [
+      "Scripts/qrcode.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Backend/Post/ListPost.min.html",
+    "inputFiles": [
+      "Scripts/Backend/Post/ListPost.html"
+    ]
+  }
+]

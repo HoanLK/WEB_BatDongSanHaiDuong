@@ -1,0 +1,131 @@
+﻿@model CMS.Models.ListBaiVietViewModel
+
+<!--SubHeader-->
+<div id="Subheader">
+    <div class="container">
+        <div class="column one">
+            <h1 class="title" style="color:#2981d6; font-weight: bold">@Model.DanhMuc.Title</h1>
+            <!--BreadCrumbs area-->
+            <ul class="breadcrumbs">
+                <li>
+                    <i class="fa fa-home"></i>
+                    <a href="index.html">Trang chủ</a><span><i class="icon-right-open"></i></span>
+                </li>
+                <li>
+                    <a href="blog-full-classic.html">Bài viết</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--Content-->
+<div id="Content">
+    <div class="content_wrapper clearfix">
+        <div style="height: 1%; overflow: hidden;">
+            <!--Main-->
+            <div class="sections_group" style="margin-bottom: 30px">
+                <div class="section" style="margin-top: 20px">
+                    <div class="section_wrapper clearfix">
+                        <div class="column one column_blog">
+                            <div class="blog_wrapper isotope_wrapper">
+                                <div class="posts_group lm_wrapper classic">
+                                    @foreach (var item in Model.BaiViets)
+                                    {
+                                        <div class="post-175 post  format-standard has-post-thumbnail  category-motion category-photography category-uncategorized tag-eclipse tag-grid tag-mysql post-item isotope-item clearfix">
+                                            <div class="date_label">
+                                                @item.TimeCreated.ToShortDateString()
+                                            </div>
+                                            <div class="image_frame post-photo-wrapper scale-with-grid">
+                                                <div class="image_wrapper">
+                                                    <a href="/bai-viet/@Model.DanhMuc.Alias/@item.Alias-@item.Id">
+                                                        <div class="mask"></div><img width="576" height="450" src="@item.Image" class="scale-with-grid wp-post-image" alt="beauty_portfolio_2" />
+                                                    </a>
+                                                    <div class="image_links double">
+                                                        <a href="@item.Image" class="zoom" rel="prettyphoto"><i class="icon-search"></i></a>
+                                                        <a href="/bai-viet/@Model.DanhMuc.Alias/@item.Alias-@item.Id" class="link"><i class="icon-link"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="post-desc-wrapper">
+                                                <div class="post-desc">
+                                                    <div class="post-meta clearfix">
+                                                        <div class="author-date">
+                                                            <span class="date"><i class="icon-clock"></i> @item.TimeCreated.ToShortDateString()</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="post-title">
+                                                        <h2 class="entry-title"><a href="/bai-viet/@Model.DanhMuc.Alias/@item.Alias-@item.Id">@item.Title</a></h2>
+                                                    </div>
+                                                    <div class="post-excerpt">
+                                                        <span class="big">@item.Description</span>
+                                                    </div>
+                                                    <div class="post-footer">
+                                                        <div class="post-links">
+                                                            <a href="/bai-viet/@Model.DanhMuc.Alias/@item.Alias-@item.Id" class="post-more">Đọc tiếp</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="column one pager_wrapper">
+                                    <!-- Navigation Area -->
+                                    <div class="pager">
+                                        <div class="pages">
+                                            <a href="blog-full-classic.html" class="active">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a>
+                                        </div><a class="next_page" href="#">Next page<i class="icon-right-open"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar area-->
+            @Html.Action("Sidebar1", "Layout")
+        </div>
+
+        <!--Dự án nổi bật-->
+        <div style="height: 1%; overflow: hidden;">
+            <div class="section full-width flv_sections_16" style="margin-bottom:20px;">
+                <div class="section_wrapper clearfix">
+                    <div class="items_group clearfix">
+                        <div class="column one column_shop_slider">
+                            <div class="shop_slider">
+                                <div class="blog_slider_header">
+                                    <h4 class="title">Dự án nổi bật</h4><a class="button button_js slider_prev" href="#"><span class="button_icon"><i class="icon-left-open-big"></i></span></a><a class="button button_js slider_next" href="#"><span class="button_icon"><i class="icon-right-open-big"></i></span></a>
+                                </div>
+                                <ul class="shop_slider_ul">
+                                    @foreach (var item in Model.DuAnNoiBats)
+                                    {
+                                        <li class="post-287 product type-product has-post-thumbnail shipping-taxable purchasable product-type-simple product-cat-clothing product-cat-hoodies instock">
+                                            <div class="item_wrapper">
+                                                <div class="image_frame scale-with-grid product-loop-thumb">
+                                                    <div class="image_wrapper">
+                                                        <a href="/du-an/@item.Alias-@item.Id">
+                                                            <div class="mask"></div><img width="500" height="500" src="@item.Image" class="scale-with-grid wp-post-image" alt="hoodie_3_front" />
+                                                        </a>
+                                                        <div class="image_links">
+                                                            <a class="link" href="/du-an/@item.Alias-@item.Id"><i class="icon-link"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="desc">
+                                                    <h4><a href="/du-an/@item.Alias-@item.Id">@item.Title</a></h4><span class="price"><span class="amount">@item.MucGia</span></span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                                <div class="slider_pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

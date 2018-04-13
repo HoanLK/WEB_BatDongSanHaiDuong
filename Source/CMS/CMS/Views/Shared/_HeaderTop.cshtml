@@ -1,0 +1,38 @@
+﻿@model CMS.Models.HeaderTopViewModel
+
+<div id="Action_bar">
+    <div class="container">
+        <div class="column one">
+            <!-- Header - contact info area-->
+            <ul class="contact_details">
+                <li class="slogan">
+                    Hãy liên hệ để được tư vấn
+                </li>
+                <li class="phone">
+                    <i class="icon-phone"></i> Hotline: <a href="tel:@Model.InfoCompany.Hotline">@Model.InfoCompany.Hotline</a>
+                </li>
+                <li class="mail">
+                    <i class="icon-mail-line"></i><a href="mailto: @Model.InfoCompany.Email">@Model.InfoCompany.Email</a>
+                </li>
+            </ul>
+            <!--Social info area-->
+            <ul class="social">
+                <li class="facebook">
+                    <a href="@Model.InfoCompany.Facebook" title="Facebook" rel="nofollow"><i class="icon-facebook"></i></a>
+                </li>
+                <li class="googleplus">
+                    <a href="@Model.InfoCompany.GooglePlus" title="Google+" rel="nofollow"><i class="icon-gplus"></i></a>
+                </li>
+                <li class="twitter">
+                    <a href="@Model.InfoCompany.Twitter" title="Twitter" rel="nofollow"><i class="icon-twitter"></i></a>
+                </li>
+                <li class="youtube">
+                    <a href="@Model.InfoCompany.Youtube" title="YouTube" rel="nofollow"><i class="icon-play"></i></a>
+                </li>
+                <li class="pinterest">
+                    <a href="@Model.InfoCompany.Pinterest" title="Pinterest" rel="nofollow"><i class="icon-pinterest"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

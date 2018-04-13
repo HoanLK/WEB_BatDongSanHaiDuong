@@ -1,0 +1,24 @@
+﻿ <!-- WOWSlider -->
+<div id="wowslider-container1" class="boxed-wow">
+    <div class="ws_images">
+        <ul>
+            @for (int i = 1; i < 14; i++)
+            {
+                string image = i + ".jpg";
+                <li><img src="~/Content/Frontend/Templates/images/wow-slider/slides/@image" alt="pic" title="pic"></li>
+            }
+        </ul>
+    </div>
+
+    <!-- uncomment this section to use bullets -->
+    <div class="ws_bullets">
+        <div>
+            @for (int i = 1; i < 14; i++)
+            {
+                string image = i + "boxed.jpg";
+                <a href="#"><span><img src="~/Content/Frontend/Templates/images/wow-slider/tooltips/@image" alt="1">1</span></a>
+            }
+
+        </div>
+    </div>
+</div>

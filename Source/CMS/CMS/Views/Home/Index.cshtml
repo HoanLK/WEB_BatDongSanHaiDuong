@@ -1,0 +1,215 @@
+﻿@model CMS.Models.HomeViewModel
+
+<!-- Main Slide -->
+@Html.Partial("~/Views/Shared/_MainSlide.cshtml")
+
+<!--Content-->
+<div id="Content">
+    <div class="content_wrapper clearfix">
+        <div style="height: 1%; overflow: hidden;">
+            <!--Main-->
+            <div class="sections_group">
+                <!-- Main Slide -->
+                @*@Html.Partial("~/Views/Shared/_MainSlide.cshtml")*@
+                <div class="section" style="margin-top: 20px">
+                    <div class="section_wrapper clearfix">
+                        <!--Dự án nổi bật-->
+                        <div class="items_group clearfix">
+                            <div class="column one column_column">
+                                <div class="column_attr ">
+                                    <a href="/du-an"><h5 class="flv_style_4">Dự án nổi bật</h5></a>
+                                </div>
+                            </div>
+                            @foreach (var item in Model.DuAnNoiBats)
+                            {
+                                <div class="column one-second column_trailer_box" style="width: 50%; margin-right: 0px;">
+                                    <div class="trailer_box">
+                                        <a href="/du-an/@item.Alias-@item.Id" title="@item.Title">
+                                            <img class="scale-with-grid" src="@item.Image" alt="@item.Title" title="@item.Title">
+                                            <div class="desc">
+                                                <div class="subtitle" style="font-size: 21px">@item.Title</div>
+                                                @*<h2>@item.Title</h2>*@
+                                                <div class="line"></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+
+                        <!--QUảng cáo 1-->
+                        <div class="items_group clearfix" style="margin-bottom: 15px;">
+                            <img src="~/Content/Frontend/Templates/images/a-875x130gif.gif" class="img-responsive" />
+                        </div>
+
+                        <!--Cẩm nang - Phong thủy - Kiến trúc-->
+                        <div class="items_group clearfix" style="margin-bottom: 10px;">
+                            <div class="column_attr ">
+                                <h5 class="flv_style_4">Cẩm nang</h5>
+                            </div>
+                        </div>
+                        <div class="items_group column_tabs">
+                            <div class="jq-tabs tabs_wrapper tabs_horizontal">
+                                <ul>
+                                    <li>
+                                        <a href="#phong-thuy">PHONG THỦY</a>
+                                    </li>
+                                    <li>
+                                        <a href="#kien-truc">KIẾN TRÚC</a>
+                                    </li>
+                                </ul>
+                                <div id="phong-thuy">
+                                    <!--Main-->
+                                    <div class="column one-second column_our_team">
+                                        <div class="team team_vertical">
+                                            <div class="image_frame no_link scale-with-grid">
+                                                <div class="image_wrapper">
+                                                    <a href="/bai-viet/phong-thuy/@Model.PhongThuyPostNewnest.Alias-@Model.PhongThuyPostNewnest.Id"><img class="scale-with-grid" src="@Model.PhongThuyPostNewnest.Image" alt="@Model.PhongThuyPostNewnest.Title" title="@Model.PhongThuyPostNewnest.Title" /></a>
+                                                </div>
+                                            </div>
+                                            <div class="desc_wrapper">
+                                                <h6><b><a href="/bai-viet/phong-thuy/@Model.PhongThuyPostNewnest.Alias-@Model.PhongThuyPostNewnest.Id" title="@Model.PhongThuyPostNewnest.Title">@Model.PhongThuyPostNewnest.Title</a></b></h6>
+                                                <hr class="hr_color" />
+                                                <div class="desc">
+                                                    @Model.PhongThuyPostNewnest.Description
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Subs-->
+                                    <div class="column one-second column_our_team">
+                                        @foreach (var item in Model.PhongThuyPosts)
+                                        {
+                                            <div class="team team_list">
+                                                <div class="column one-third">
+                                                    <div class="image_frame no_link scale-with-grid">
+                                                        <div class="image_wrapper">
+                                                            <a href="/bai-viet/phong-thuy/@item.Alias-@item.Id"><img class="scale-with-grid" src="@item.Image" alt="@item.Title" /></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="column two-third" style="width: 66%;">
+                                                    <div class="desc_wrapper" style="margin-left: 5px;">
+                                                        <h6><b><a href="/bai-viet/phong-thuy/@item.Alias-@item.Id">@item.Title</a></b></h6>
+                                                        <hr class="hr_color" />
+                                                        <div class="desc">@item.Description</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="column_attr ">
+                                        <div class="alignright">
+                                            <a class="mfn-link mfn-link-5 " href="/bai-viet/phong-thuy" data-hover="Xem thêm"><span data-hover="Xem thêm">Xem thêm <i class="fa fa-chevron-right"></i></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="kien-truc">
+                                    <!--Main-->
+                                    <div class="column one-second column_our_team">
+                                        <div class="team team_vertical">
+                                            <div class="image_frame no_link scale-with-grid">
+                                                <div class="image_wrapper">
+                                                    <a href="/bai-viet/kien-truc/@Model.KienTrucPostNewnest.Alias-@Model.PhongThuyPostNewnest.Id"><img class="scale-with-grid" src="@Model.KienTrucPostNewnest.Image" alt="@Model.KienTrucPostNewnest.Title" title="@Model.KienTrucPostNewnest.Title" /></a>
+                                                </div>
+                                            </div>
+                                            <div class="desc_wrapper">
+                                                <h6><b><a href="/bai-viet/kien-truc/@Model.KienTrucPostNewnest.Alias-@Model.PhongThuyPostNewnest.Id" title="@Model.KienTrucPostNewnest.Title">@Model.KienTrucPostNewnest.Title</a></b></h6>
+                                                <hr class="hr_color" />
+                                                <div class="desc">
+                                                    @Model.KienTrucPostNewnest.Description
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Subs-->
+                                    <div class="column one-second column_our_team">
+                                        @foreach (var item in Model.KienTrucPosts)
+                                        {
+                                            <div class="team team_list">
+                                                <div class="column one-third">
+                                                    <div class="image_frame no_link scale-with-grid">
+                                                        <div class="image_wrapper">
+                                                            <a href="/bai-viet/kien-truc/@item.Alias-@item.Id"><img class="scale-with-grid" src="@item.Image" alt="@item.Title" /></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="column two-third" style="width: 66%;">
+                                                    <div class="desc_wrapper" style="margin-left: 5px;">
+                                                        <h6><b><a href="/bai-viet/kien-truc/@item.Alias-@item.Id">@item.Title</a></b></h6>
+                                                        <hr class="hr_color" />
+                                                        <div class="desc">@item.Description</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="column_attr ">
+                                        <div class="alignright">
+                                            <a class="mfn-link mfn-link-5 " href="/bai-viet/kien-truc" data-hover="Xem thêm"><span data-hover="Xem thêm">Xem thêm <i class="fa fa-chevron-right"></i></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar 1-->
+            @Html.Action("Sidebar1", "Layout")
+
+        </div>
+
+        <!--Đối tác-->
+        <div style="height: 1%; overflow: hidden;">
+            <div class="section" id="portfolioslider flv_sections_16" style="margin-top: 20px">
+                <div class="section_wrapper clearfix">
+                    <div class="items_group clearfix">
+                        <!-- One full width row-->
+                        <div class="column one column_column">
+                            <div class="column_attr ">
+                                <h5 class="flv_style_4">ĐỐI TÁC</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section full-width flv_sections_16" style="margin-bottom:20px;">
+                <div class="section_wrapper clearfix">
+                    <div class="items_group clearfix">
+                        <div class="column one column_portfolio_slider">
+                            <div class="portfolio_slider ">
+                                <a class="slider_nav slider_prev themebg" href="#"><i class="icon-left-open-big"></i></a><a class="slider_nav slider_next themebg" href="#"><i class="icon-right-open-big"></i></a>
+                                <ul class="portfolio_slider_ul">
+                                    @for (int i = 1; i < 9; i++)
+                                    {
+                                    <li>
+                                        <div class="image_frame scale-with-grid">
+                                            <div class="image_wrapper">
+                                                @{
+                                                        string imageUrl = "/Content/Frontend/Templates/images/doi-tac/" + i + ".jpg";
+                                                }
+                                                <a href=@imageUrl class="zoom" rel="prettyphoto">
+                                                    <div class="mask"></div>
+                                                    <img style="width: auto; height: 100px; margin: 0px auto" src=@imageUrl class="scale-with-grid wp-post-image" alt="portfolio_1" />
+                                                </a>
+                                                @*<div class="image_links triple">
+                                                        <a href=@imageUrl class="zoom" rel="prettyphoto"><i class="icon-search"></i></a>
+                                                        <a target="_blank" href="http://themeforest.net/" class="external"><i class="icon-forward"></i></a>
+                                                        <a href="portfolio-single-mixed.html" class="link"><i class="icon-link"></i></a>
+                                                    </div>*@
+                                            </div>
+                                        </div>
+                                    </li>
+                                                        }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

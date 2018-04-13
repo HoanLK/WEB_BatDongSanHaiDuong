@@ -1,0 +1,69 @@
+﻿@model CMS.Models.ListDuAnViewModel
+
+<!--SubHeader-->
+<div id="Subheader">
+    <div class="container">
+        <div class="column one">
+            <h1 class="title" style="color:#2981d6; font-weight: bold">Dự án</h1>
+            <!--BreadCrumbs area-->
+            <ul class="breadcrumbs">
+                <li>
+                    <i class="fa fa-home"></i>
+                    <a href="index.html">Trang chủ</a><span><i class="icon-right-open"></i></span>
+                </li>
+                <li>
+                    <a href="blog-full-classic.html">Dự án</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--Content-->
+<div id="Content">
+    <div class="content_wrapper clearfix">
+        <div style="height: 1%; overflow: hidden;">
+            <!--Main-->
+            <div class="sections_group" style="margin-bottom: 30px">
+                <div class="section" style="margin-top: 20px">
+                    <div class="section_wrapper clearfix">
+                        <div class="items_group clearfix">
+                            @foreach (var item in Model.DuAns)
+                            {
+                                <div class="column one-second column_trailer_box" style="width: 50%; margin-right: 0px;">
+                                    <div class="trailer_box">
+                                        <a href="/du-an/@item.Alias-@item.Id" title="@item.Title">
+                                            <img class="scale-with-grid" src="@item.Image" alt="@item.Title" title="@item.Title">
+                                            <div class="desc">
+                                                <div class="subtitle" style="font-size: 21px">@item.Title</div>
+                                                @*<h2>@item.Title</h2>*@
+                                                <div class="line"></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="column one pager_wrapper">
+                    <!-- Navigation Area -->
+                    <div class="pager">
+                        <div class="pages">
+                            <a href="portfolio-sidebar-grid.html" class="active">1</a>
+                            <a href="#">2</a><a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                        </div>
+                        <a class="next_page" href="#">Next page<i class="icon-right-open"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar 1-->
+            @Html.Action("Sidebar1", "Layout")
+        </div>
+
+
+    </div>
+</div>

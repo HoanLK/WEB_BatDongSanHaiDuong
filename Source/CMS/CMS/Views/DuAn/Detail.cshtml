@@ -1,0 +1,164 @@
+﻿@model CMS.Models.ShowDuAnViewModel
+
+<!--SubHeader-->
+<div id="Subheader">
+    <div class="container">
+        <div class="column one">
+            <h1 class="title" style="color:#2981d6; font-weight: bold">Green Bay Premium</h1>
+            <!--BreadCrumbs area-->
+            <ul class="breadcrumbs">
+                <li>
+                    <i class="fa fa-home"></i>
+                    <a href="index.html">Trang chủ</a><span><i class="icon-right-open"></i></span>
+                </li>
+                <li>
+                    <a href="blog-full-classic.html">Dự án</a><span><i class="icon-right-open"></i></span>
+                </li>
+                <li>
+                    <a href="blog-full-classic.html">Green Bay Premium</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--Content-->
+<div id="Content">
+    <div class="content_wrapper clearfix">
+        <div style="height: 1%; overflow: hidden;">
+            <!--Main-->
+            <div class="sections_group" style="margin-bottom: 30px">
+                <div class="section" style="margin-top: 20px">
+                    <div class="section_wrapper clearfix">
+                        <div class="items_group clearfix">
+                            <!--Images-->
+                            <!--Desktop-->
+                            <div style="width:100%;margin:0px auto;" class="hidden-xs">
+                                <div id="ninja-slider" style="float:left;">
+                                    <div class="slider-inner">
+                                        <ul>
+                                            @foreach (var item in Model.Images)
+                                            {
+                                                <li><a class="ns-img" href="@item.Image"></a></li>
+                                            }
+                                        </ul>
+                                        <div class="fs-icon" title="Expand/Close"></div>
+                                    </div>
+                                </div>
+                                <div id="thumbnail-slider" style="float:left;">
+                                    <div class="inner">
+                                        <ul>
+                                            @foreach (var item in Model.Images)
+                                            {
+                                                <li>
+                                                    <a class="thumb" href="@item.Image"></a>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <!--Mobile-->
+                            <div id="wowslider-container1" class="boxed-wow visible-xs">
+                                <div class="ws_images">
+                                    <ul>
+                                        @foreach (var item in Model.Images)
+                                        {
+                                            <li><img src="@item.Image" alt="pic" title="pic"></li>
+                                        }
+                                    </ul>
+                                </div>
+
+                                <!-- uncomment this section to use bullets -->
+                                <div class="ws_bullets">
+                                    <div>
+                                        @foreach (var item in Model.Images)
+                                        {
+                                            <a href="#"><span><img src="@item.Image" alt="1">1</span></a>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Content-->
+                            <div class="items_group column_tabs" style="margin-top: 10px;">
+                                <div class="jq-tabs tabs_wrapper tabs_horizontal">
+                                    <ul>
+                                        <li>
+                                            <a href="#tong-quan">Tổng quan</a>
+                                        </li>
+                                        <li>
+                                            <a href="#mat-bang">Mặt bằng</a>
+                                        </li>
+                                        <li>
+                                            <a href="#chinh-sach">Chính sách</a>
+                                        </li>
+                                        <li>
+                                            <a href="#ban-giao">Bàn giao</a>
+                                        </li>
+                                    </ul>
+                                    <div id="tong-quan">
+                                        @Html.Raw(Model.DuAn.TongQuan)
+                                    </div>
+                                    <div id="mat-bang">
+                                        @Html.Raw(Model.DuAn.MatBang)
+                                    </div>
+                                    <div id="chinh-sach">
+                                        @Html.Raw(Model.DuAn.ChinhSach)
+                                    </div>
+                                    <div id="ban-giao">
+                                        @Html.Raw(Model.DuAn.BanGiao)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar area-->
+            @Html.Action("Sidebar1", "Layout")
+        </div>
+
+        <!--Dự án khác-->
+        <div style="height: 1%; overflow: hidden;">
+            <div class="section full-width flv_sections_16" style="margin-bottom:20px;">
+                <div class="section_wrapper clearfix">
+                    <div class="items_group clearfix">
+                        <div class="column one column_shop_slider">
+                            <div class="shop_slider">
+                                <div class="blog_slider_header">
+                                    <h4 class="title">Các dự án khác</h4><a class="button button_js slider_prev" href="#"><span class="button_icon"><i class="icon-left-open-big"></i></span></a><a class="button button_js slider_next" href="#"><span class="button_icon"><i class="icon-right-open-big"></i></span></a>
+                                </div>
+                                <ul class="shop_slider_ul">
+                                    @foreach (var item in Model.DuAnKhacs)
+                                    {
+                                        <li class="post-287 product type-product has-post-thumbnail shipping-taxable purchasable product-type-simple product-cat-clothing product-cat-hoodies instock">
+                                            <div class="item_wrapper">
+                                                <div class="image_frame scale-with-grid product-loop-thumb">
+                                                    <div class="image_wrapper">
+                                                        <a href="/du-an/@item.Alias-@item.Id">
+                                                            <div class="mask"></div><img width="500" height="500" src="@item.Image" class="scale-with-grid wp-post-image" alt="hoodie_3_front" />
+                                                        </a>
+                                                        <div class="image_links">
+                                                            <a class="link" href="/du-an/@item.Alias-@item.Id"><i class="icon-link"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="desc">
+                                                    <h4><a href="/du-an/@item.Alias-@item.Id">@item.Title</a></h4><span class="price"><span class="amount">@item.MucGia</span></span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                                <div class="slider_pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

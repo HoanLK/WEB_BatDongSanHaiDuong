@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BDSHDModelStoreContainer" CdmEntityContainer="BDSHDEntities">
+    <EntitySetMapping Name="AlbumImages">
+      <EntityTypeMapping TypeName="BDSHDModel.AlbumImage">
+        <MappingFragment StoreEntitySet="AlbumImages">
+          <ScalarProperty Name="Views" ColumnName="Views" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TimeCreated" ColumnName="TimeCreated" />
+          <ScalarProperty Name="Robots" ColumnName="Robots" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="MetaKewords" ColumnName="MetaKewords" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="ImageBanner" ColumnName="ImageBanner" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="BDSHDModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="BDSHDModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="BDSHDModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="BDSHDModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="IsGoogleAuthenticatorEnabled" ColumnName="IsGoogleAuthenticatorEnabled" />
+          <ScalarProperty Name="GoogleAuthenticatorSecretKey" ColumnName="GoogleAuthenticatorSecretKey" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Banners">
+      <EntityTypeMapping TypeName="BDSHDModel.Banner">
+        <MappingFragment StoreEntitySet="Banners">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TimeCreated" ColumnName="TimeCreated" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryPosts">
+      <EntityTypeMapping TypeName="BDSHDModel.CategoryPost">
+        <MappingFragment StoreEntitySet="CategoryPosts">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TimeCreated" ColumnName="TimeCreated" />
+          <ScalarProperty Name="Robots" ColumnName="Robots" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="MetaKewords" ColumnName="MetaKewords" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="ImageBanner" ColumnName="ImageBanner" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryProjects">
+      <EntityTypeMapping TypeName="BDSHDModel.CategoryProject">
+        <MappingFragment StoreEntitySet="CategoryProjects">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TimeCreated" ColumnName="TimeCreated" />
+          <ScalarProperty Name="Robots" ColumnName="Robots" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="MetaKewords" ColumnName="MetaKewords" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="ImageBanner" ColumnName="ImageBanner" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Duongs">
+      <EntityTypeMapping TypeName="BDSHDModel.Duong">
+        <MappingFragment StoreEntitySet="Duong">
+          <ScalarProperty Name="HuyenId" ColumnName="HuyenId" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoSoPhapLyBDS">
+      <EntityTypeMapping TypeName="BDSHDModel.HoSoPhapLyBD">
+        <MappingFragment StoreEntitySet="HoSoPhapLyBDS">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HuongBDS">
+      <EntityTypeMapping TypeName="BDSHDModel.HuongBD">
+        <MappingFragment StoreEntitySet="HuongBDS">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Huyens">
+      <EntityTypeMapping TypeName="BDSHDModel.Huyen">
+        <MappingFragment StoreEntitySet="Huyen">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="TinhId" ColumnName="TinhId" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImageBanners">
+      <EntityTypeMapping TypeName="BDSHDModel.ImageBanner">
+        <MappingFragment StoreEntitySet="ImageBanners">
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="BannerId" ColumnName="BannerId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImageProjects">
+      <EntityTypeMapping TypeName="BDSHDModel.ImageProject">
+        <MappingFragment StoreEntitySet="ImageProjects">
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImageTinBDS">
+      <EntityTypeMapping TypeName="BDSHDModel.ImageTinBD">
+        <MappingFragment StoreEntitySet="ImageTinBDS">
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="TinBDSId" ColumnName="TinBDSId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InfoCompanies">
+      <EntityTypeMapping TypeName="BDSHDModel.InfoCompany">
+        <MappingFragment StoreEntitySet="InfoCompany">
+          <ScalarProperty Name="Map" ColumnName="Map" />
+          <ScalarProperty Name="Pinterest" ColumnName="Pinterest" />
+          <ScalarProperty Name="GooglePlus" ColumnName="GooglePlus" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+          <ScalarProperty Name="Youtube" ColumnName="Youtube" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="MasoThue" ColumnName="MasoThue" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Hotline" ColumnName="Hotline" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Intro" ColumnName="Intro" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="NameCompany" ColumnName="NameCompany" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemAlbumImages">
+      <EntityTypeMapping TypeName="BDSHDModel.ItemAlbumImage">
+        <MappingFragment StoreEntitySet="ItemAlbumImages">
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhoangTienBDS">
+      <EntityTypeMapping TypeName="BDSHDModel.KhoangTienBD">
+        <MappingFragment StoreEntitySet="KhoangTienBDS">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="Max" ColumnName="Max" />
+          <ScalarProperty Name="Min" ColumnName="Min" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiBDS">
+      <EntityTypeMapping TypeName="BDSHDModel.LoaiBD">
+        <MappingFragment StoreEntitySet="LoaiBDS">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MucDichBDS">
+      <EntityTypeMapping TypeName="BDSHDModel.MucDichBD">
+        <MappingFragment StoreEntitySet="MucDichBDS">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="BDSHDModel.Post">
+        <MappingFragment StoreEntitySet="Posts">
+          <ScalarProperty Name="Views" ColumnName="Views" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TimeCreated" ColumnName="TimeCreated" />
+          <ScalarProperty Name="Robots" ColumnName="Robots" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="MetaKewords" ColumnName="MetaKewords" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="ImageBanner" ColumnName="ImageBanner" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Featured" ColumnName="Featured" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="BDSHDModel.Project">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="Views" ColumnName="Views" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TimeCreated" ColumnName="TimeCreated" />
+          <ScalarProperty Name="Robots" ColumnName="Robots" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="MetaKewords" ColumnName="MetaKewords" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="ImageBanner" ColumnName="ImageBanner" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Featured" ColumnName="Featured" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="BanGiao" ColumnName="BanGiao" />
+          <ScalarProperty Name="ChinhSach" ColumnName="ChinhSach" />
+          <ScalarProperty Name="MatBang" ColumnName="MatBang" />
+          <ScalarProperty Name="TongQuan" ColumnName="TongQuan" />
+          <ScalarProperty Name="MucGia" ColumnName="MucGia" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TinBDS">
+      <EntityTypeMapping TypeName="BDSHDModel.TinBD">
+        <MappingFragment StoreEntitySet="TinBDS">
+          <ScalarProperty Name="Views" ColumnName="Views" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TimeCreated" ColumnName="TimeCreated" />
+          <ScalarProperty Name="Robots" ColumnName="Robots" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="MetaKewords" ColumnName="MetaKewords" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="EmailLH" ColumnName="EmailLH" />
+          <ScalarProperty Name="DienThoaiLH" ColumnName="DienThoaiLH" />
+          <ScalarProperty Name="DiaChiLH" ColumnName="DiaChiLH" />
+          <ScalarProperty Name="TenNguoiLH" ColumnName="TenNguoiLH" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Featured" ColumnName="Featured" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="DienTichDat" ColumnName="DienTichDat" />
+          <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
+          <ScalarProperty Name="KhoangTienBDSId" ColumnName="KhoangTienBDSId" />
+          <ScalarProperty Name="HoSoPhapLyBDSId" ColumnName="HoSoPhapLyBDSId" />
+          <ScalarProperty Name="MucDichBDSId" ColumnName="MucDichBDSId" />
+          <ScalarProperty Name="HuongBDSId" ColumnName="HuongBDSId" />
+          <ScalarProperty Name="LoaiBDSId" ColumnName="LoaiBDSId" />
+          <ScalarProperty Name="DuongId" ColumnName="DuongId" />
+          <ScalarProperty Name="XaId" ColumnName="XaId" />
+          <ScalarProperty Name="HuyenId" ColumnName="HuyenId" />
+          <ScalarProperty Name="TinhId" ColumnName="TinhId" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+          <ScalarProperty Name="MaBDS" ColumnName="MaBDS" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tinhs">
+      <EntityTypeMapping TypeName="BDSHDModel.Tinh">
+        <MappingFragment StoreEntitySet="Tinh">
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Videos">
+      <EntityTypeMapping TypeName="BDSHDModel.Video">
+        <MappingFragment StoreEntitySet="Videos">
+          <ScalarProperty Name="Views" ColumnName="Views" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TimeCreated" ColumnName="TimeCreated" />
+          <ScalarProperty Name="Robots" ColumnName="Robots" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="MetaKewords" ColumnName="MetaKewords" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="ImageBanner" ColumnName="ImageBanner" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="VideoUrl" ColumnName="VideoUrl" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Xas">
+      <EntityTypeMapping TypeName="BDSHDModel.Xa">
+        <MappingFragment StoreEntitySet="Xa">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="HuyenId" ColumnName="HuyenId" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="BDSHDModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

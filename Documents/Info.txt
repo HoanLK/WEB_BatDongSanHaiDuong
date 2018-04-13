@@ -1,0 +1,7 @@
+﻿Website quản trị: http://batdongsanthp.vn:8880 hoặc http://125.212.221.113:8880 
+Username: batdongsanthpvn
+Password: PAvxsfguhC89
+
+Ftp Server: batdongsanthp.vn hoặc 125.212.221.113
+Username: batdongsanthpvn
+Password: PAvxsfguhC89

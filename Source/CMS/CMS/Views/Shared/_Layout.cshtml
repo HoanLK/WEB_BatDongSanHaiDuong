@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css?family=Pompiere" rel="stylesheet" type="text/css">
+
+    <!--FontAwsome-->
+    <link href="~/Content/Frontend/Templates/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- WOWSlider -->
+    <link href="~/Content/Frontend/Templates/plugins/wow-slider/scripts/style.css" rel="stylesheet" />
+
+    <!--Thumbnail Slider-->
+    <link href="~/Content/Frontend/Templates/plugins/thumbnail-slider/ninja-slider.css" rel="stylesheet" />
+    <link href="~/Content/Frontend/Templates/plugins/thumbnail-slider/thumbnail-slider.css" rel="stylesheet" />
+
+    <!--CSS-->
+    <link href="~/Content/Frontend/Templates/css/global.css" rel="stylesheet" />
+    <link href="~/Content/Frontend/Templates/css/structure.css" rel="stylesheet" />
+    <link href="~/Content/Frontend/Templates/css/be_style.css" rel="stylesheet" />
+    <link href="~/Content/Frontend/Templates/css/custom.css" rel="stylesheet" />
+    
+</head>
+<body class="with_aside aside_right template-slider color-blue layout-full-width header-stack subheader-transparent sticky-header sticky-white subheader-title-left">
+    <!-- Main Theme Wrapper -->
+    <div id="Wrapper">
+        <!-- Header Wrapper -->
+        <div id="Header_wrapper" class="flv_header_portfolio">
+            <!-- Header -->
+            <header id="Header">
+                <!-- Header Top -  Info Area -->
+                @Html.Action("HeaderTop", "Layout")
+                <!-- Header -  Logo and Menu area -->
+                <div id="Top_bar">
+                    <div class="container">
+                        <div class="column one">
+                            <div class="top_bar_left clearfix">
+                                <!-- Logo-->
+                                <div class="logo">
+                                    <a id="logo" href="/" title="BeTheme - Best Html Theme Ever">
+                                        <img class="scale-with-grid" src="~/Content/Frontend/Templates/images/logo1.png" alt="BeTheme - Best Html Theme Ever" />
+                                    </a>
+                                </div>
+                                <!--Banner Menu-->
+                                <div class="secondary_menu_wrapper">
+                                    <img src="~/Content/Frontend/Templates/images/1201x111gif.gif" />
+                                </div>
+
+                                <!-- Main menu-->
+                                @Html.Partial("~/Views/Shared/_MainMenu.cshtml")
+
+                                <!-- Banner area - only for certain pages-->
+                                <div class="banner_wrapper">
+                                    <a href="#" target="_blank">
+                                        <img src="~/Content/Frontend/Templates/images/468x60.gif" alt="">
+                                    </a>
+                                </div>
+                                <!-- Header Searchform area-->
+                                <div class="search_wrapper">
+                                    <form method="get" action="#">
+                                        <i class="icon_search icon-search"></i><a href="#" class="icon_close"><i class="icon-cancel"></i></a>
+                                        <input type="text" class="field" name="s" placeholder="Tìm kiếm ..." />
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="top_bar_right">
+                                <!-- Search-->
+                                <div class="top_bar_right_wrapper">
+                                    <a id="search_button" href="#"><i class="icon-search"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        <!-- Main Content -->
+        @RenderBody()
+
+        <!-- Footer-->
+        @Html.Action("Footer", "Layout")
+
+    </div>
+
+    
+
+    <!--Scripts-->
+    @RenderSection("scripts", required: false)
+
+    <script src="~/Content/Frontend/Templates/js/jquery-2.1.4.min.js"></script>
+    <script src="~/Content/Frontend/Templates/js/ui/jquery-ui.min.js"></script>
+    <script src="~/Content/Frontend/Templates/js/mfn.menu.js"></script>
+    <script src="~/Content/Frontend/Templates/js/jquery.plugins.js"></script>
+    <script src="~/Content/Frontend/Templates/js/jquery.jplayer.min.js"></script>
+    <script src="~/Content/Frontend/Templates/js/animations/animations.js"></script>
+    @*<script src="~/Content/Frontend/Templates/js/email.js"></script>*@
+    <script src="~/Content/Frontend/Templates/js/scripts.js"></script>
+
+    <!-- WOWSlider -->
+    <script src="~/Content/Frontend/Templates/plugins/wow-slider/scripts/wowslider.js"></script>
+    <script src="~/Content/Frontend/Templates/plugins/wow-slider/scripts/script-cube.js"></script>
+
+    <!--Thumbnail Slider-->
+    <script src="~/Content/Frontend/Templates/plugins/thumbnail-slider/ninja-slider.js"></script>
+    <script src="~/Content/Frontend/Templates/plugins/thumbnail-slider/thumbnail-slider.js"></script>
+
+    <!--Tabs-->
+    <script>
+         jQuery(window).load(function () {
+             jQuery(".jq-tabs").tabs();
+         });
+    </script>
+
+</body>
+</html>

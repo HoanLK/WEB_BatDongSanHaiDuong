@@ -1,0 +1,99 @@
+﻿@model CMS.Models.FooterViewModel
+
+<footer id="Footer" class="clearfix">
+    <div class="widgets_wrapper">
+        <div class="container">
+            <!--Info Company-->
+            <div class="one-second column">
+                <aside id="text-7" class="widget widget_text">
+                    <div class="textwidget">
+                        <!--Logo Footer-->
+                        <img src="@Model.InfoCompany.Logo" title="@Model.InfoCompany.NameCompany" alt="@Model.InfoCompany.NameCompany" />
+                        <!--Info Company-->
+                        <p style="line-height: 26px;">
+                            <b style="font-size:17px; color:#fff;">@Model.InfoCompany.NameCompany</b><br />
+                            <span> Địa chỉ : @Model.InfoCompany.Address</span><br />
+                            <span> Hotline : @Model.InfoCompany.Hotline</span><br />
+                            <span> Điện thoại : @Model.InfoCompany.Tel</span><br />
+                            <span> Email: @Model.InfoCompany.Email</span><br />
+                            <span> Website: @Model.InfoCompany.Website </span>
+                        </p>
+                        <!--Social-->
+                        <a href="@Model.InfoCompany.Facebook" class="icon_bar icon_bar_facebook icon_bar_small"><span class="t"><i class="icon-facebook"></i></span><span class="b"><i class="icon-facebook"></i></span></a>
+                        <a href="@Model.InfoCompany.GooglePlus" class="icon_bar icon_bar_google icon_bar_small"><span class="t"><i class="icon-gplus"></i></span><span class="b"><i class="icon-gplus"></i></span></a>
+                        <a href="@Model.InfoCompany.Twitter" class="icon_bar icon_bar_twitter icon_bar_small"><span class="t"><i class="icon-twitter"></i></span><span class="b"><i class="icon-twitter"></i></span></a>
+                        <a href="@Model.InfoCompany.Youtube" class="icon_bar icon_bar_youtube icon_bar_small"><span class="t"><i class="icon-play"></i></span><span class="b"><i class="icon-play"></i></span></a>
+                    </div>
+                </aside>
+            </div>
+            <!--Điều hướng-->
+            <div class="one-fourth column">
+                <aside class="widget widget_mfn_recent_posts">
+                    <h4>Điều hướng</h4>
+                    <div>
+                        <ul style="list-style: square">
+                            <li><a href="#" style="color: #ccc">Giới thiệu</a></li>
+                            <li><a href="#" style="color: #ccc">Dự án</a></li>
+                            <li>
+                                Cẩm nang
+                                <ul style="list-style: disc; margin-left: 20px;">
+                                    <li><a href="#" style="color: #ccc">Phong thủy</a></li>
+                                    <li><a href="#" style="color: #ccc">Kiến trúc</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                Thư viện
+                                <ul style="list-style: disc; margin-left: 20px;">
+                                    <li><a href="#" style="color: #ccc">Hình ảnh</a></li>
+                                    <li><a href="#" style="color: #ccc">Video</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" style="color: #ccc">Tin tức</a></li>
+                            <li><a href="#" style="color: #ccc">Tuyển dụng</a></li>
+                            <li><a href="#" style="color: #ccc">Liên hệ</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+            <!--Send Email-->
+            <div class="one-fourth column" style="margin-right: 0px; width: 25%">
+                <aside class="widget widget_mfn_recent_posts">
+                    <h4>Liên hệ chúng tôi</h4>
+                    <div class="column_attr ">
+                        <div id="contactWrapper_popup">
+                            <form id="contactform_popup" class="flv_fullwidth">
+                                <p>
+                                    <span>
+                                        <input type="text" name="name_popup" id="name_popup" aria-required="true" aria-invalid="false" placeholder="Your name" />
+                                    </span>
+                                    <span>
+                                        <input type="email" name="email_popup" id="email_popup" aria-required="true" aria-invalid="false" placeholder="Your email" />
+                                    </span>
+                                    @*<span>
+                                            <input type="text" name="subject_popup" id="subject_popup" aria-required="true" aria-invalid="false" placeholder="Subject" />
+                                        </span>*@
+                                    <span>
+                                        <textarea name="body_popup" id="body_popup" rows="6" aria-required="true" aria-invalid="false" placeholder="Message"></textarea>
+                                    </span>
+                                    <input type="button" value="Send Message">
+                                </p>
+                            </form>
+                            <div id="confirmation_popup"></div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+    <!-- Footer copyright-->
+    <div class="footer_copy">
+        <div class="container">
+            <div class="column one">
+                <a id="back_to_top" href="#" class="button button_left button_js"><span class="button_icon"><i class="icon-up-open-big"></i></span></a>
+                <div class="copyright">
+                    &copy; 2017 Design by <a href="http://fastup.vn" target="_blank">Fastup</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

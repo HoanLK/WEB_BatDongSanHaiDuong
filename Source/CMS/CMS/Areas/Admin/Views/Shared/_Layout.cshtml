@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]> <html lang="vi" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="vi" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="vi" ng-app="backend">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <title>FASTUP | Trang quản trị</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Preview page of Metronic Admin Theme #1 for blank page layout" name="description" />
+    <meta content="FASTUP" name="author" />
+
+    <!--Loader-->
+    <link href="~/Content/Backend/Templates/loadSpinner.css" rel="stylesheet" />
+    <script>
+        var loadSpinner;
+
+        function LoadSpinner() {
+            setTimeout(ShowPage, 500);
+        }
+
+        function ShowPage() {
+            document.getElementById("loader").style.opacity = 0;
+            document.getElementById("myContent").style.opacity = 1;
+        }
+    </script>
+
+
+    <!-- GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Backend/Templates/metronic475/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/Backend/Templates/metronic475/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="~/Content/Backend/Templates/metronic475/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Backend/Templates/metronic475/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" />
+    <!-- THEME GLOBAL STYLES -->
+    <link href="~/Content/Backend/Templates/metronic475/global/css/components-md.min.css" rel="stylesheet" />
+    <link href="~/Content/Backend/Templates/metronic475/global/css/plugins-md.min.css" rel="stylesheet" />
+    <!-- THEME LAYOUT STYLES -->
+    <link href="~/Content/Backend/Templates/metronic475/layouts/layout/css/layout.min.css" rel="stylesheet" />
+    <link href="~/Content/Backend/Templates/metronic475/layouts/layout/css/themes/darkblue.min.css" rel="stylesheet" />
+    <link href="~/Content/Backend/Templates/metronic475/layouts/layout/css/custom.min.css" rel="stylesheet" />
+
+    <!--DEVEXTREME-->
+    <link href="~/Content/Vendors/DevExtreme/Lib/css/dx.spa.min.css" rel="stylesheet" />
+    <link href="~/Content/Vendors/DevExtreme/Lib/css/dx.common.min.css" rel="stylesheet" />
+    <link href="~/Content/Vendors/DevExtreme/Lib/css/dx.light.min.css" rel="stylesheet" />
+
+    <!--TOAST-->
+    <link href="~/Content/Vendors/toastr/toastr.min.css" rel="stylesheet" />
+
+    <!--Customize-->
+    <link href="~/Content/Backend/Templates/metronic475/my/customizes.css" rel="stylesheet" />
+
+    <link href="~/Content/Backend/Templates/customizeDevextreme.css" rel="stylesheet" />
+
+    <link rel="shortcut icon" href="~/Content/Backend/Images/favicon.ico" />
+
+
+
+
+
+</head>
+<!-- END HEAD -->
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-sidebar-fixed page-content-white page-md" onload="LoadSpinner()">
+    @*<div id="loader"></div>*@
+    <div class="sk-circle" id="loader">
+        <div class="sk-circle1 sk-child"></div>
+        <div class="sk-circle2 sk-child"></div>
+        <div class="sk-circle3 sk-child"></div>
+        <div class="sk-circle4 sk-child"></div>
+        <div class="sk-circle5 sk-child"></div>
+        <div class="sk-circle6 sk-child"></div>
+        <div class="sk-circle7 sk-child"></div>
+        <div class="sk-circle8 sk-child"></div>
+        <div class="sk-circle9 sk-child"></div>
+        <div class="sk-circle10 sk-child"></div>
+        <div class="sk-circle11 sk-child"></div>
+        <div class="sk-circle12 sk-child"></div>
+    </div>
+    <div class="page-wrapper" id="myContent">
+        <!-- HEADER -->
+        <div class="page-header navbar navbar-fixed-top">
+            <!-- HEADER INNER -->
+            <div class="page-header-inner ">
+                <!-- LOGO -->
+                <div class="page-logo">
+                    <a href="index.html">
+                        @*<img src="~/Content/Backend/Templates/metronic475/layouts/layout/img/logo.png" alt="logo" class="logo-default" />*@
+                        <img src="~/Content/Backend/Images/Logo.png" alt="logo" class="logo-default"/>
+                    </a>
+                    <div class="menu-toggler sidebar-toggler">
+                        <span></span>
+                    </div>
+                </div>
+                <!-- RESPONSIVE MENU TOGGLER -->
+                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span></span>
+                </a>
+                <!-- TOP NAVIGATION MENU -->
+                @Html.Partial("~/Areas/Admin/Views/Shared/_TopMenu.cshtml")
+            </div>
+        </div>
+
+        <!-- HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- CONTAINER -->
+        <div class="page-container">
+            <!-- SIDEBAR -->
+            @Html.Partial("~/Areas/Admin/Views/Shared/_LeftSidebar.cshtml")
+
+            <!-- CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- CONTENT BODY -->
+                <div class="page-content">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="quick-nav-overlay"></div>
+
+    <!--SCRIPTS-->
+    @RenderSection("scripts", required: false)
+
+    <!--[if lt IE 9]>
+    <script src="~/Content/Backend/Templates/metronic475/global/plugins/respond.min.js"></script>
+    <script src="~/Content/Backend/Templates/metronic475/global/plugins/excanvas.min.js"></script>
+    <script src="~/Content/Backend/Templates/metronic475/global/plugins/ie8.fix.min.js"></script>
+    <![endif]-->
+    <!-- CORE PLUGINS -->
+    <script src="~/Content/Backend/Templates/metronic475/global/plugins/jquery.min.js"></script>
+    <script src="~/Content/Backend/Templates/metronic475/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/Backend/Templates/metronic475/global/plugins/js.cookie.min.js"></script>
+    <script src="~/Content/Backend/Templates/metronic475/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/Content/Backend/Templates/metronic475/global/plugins/jquery.blockui.min.js"></script>
+    <script src="~/Content/Backend/Templates/metronic475/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <!-- THEME GLOBAL SCRIPTS -->
+    <script src="~/Content/Backend/Templates/metronic475/global/scripts/app.min.js"></script>
+    <!-- THEME LAYOUT SCRIPTS -->
+    <script src="~/Content/Backend/Templates/metronic475/layouts/layout/scripts/layout.min.js"></script>
+    <script src="~/Content/Backend/Templates/metronic475/layouts/layout/scripts/demo.min.js"></script>
+    <script src="~/Content/Backend/Templates/metronic475/layouts/global/scripts/quick-sidebar.min.js"></script>
+    <script src="~/Content/Backend/Templates/metronic475/layouts/global/scripts/quick-nav.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#clickmewow').click(function () {
+                $('#radio1003').attr('checked', 'checked');
+            });
+        })
+    </script>
+
+    <!--CKEditor-->
+    <script type="text/javascript" src='@Url.Content("~/ckfinder/ckfinder.js")'></script>
+    <script type="text/javascript" src='@Url.Content("~/ckeditor/ckeditor.js")'></script>
+    <script type="text/javascript"> CKFinder.setupCKEditor(null, '@Url.Content("~/ckfinder/")'); </script>
+
+    <!--DEVEXTREME-->
+    <script src="~/Content/Vendors/DevExtreme/Lib/js/jszip.min.js"></script>
+
+    <!--AngularJS-->
+    <script src="~/Content/Vendors/angular-1.6.9/angular.min.js"></script>
+    <script src="~/Content/Vendors/angular-1.6.9/angular-sanitize.min.js"></script>
+    <script src="~/Content/Vendors/angular-1.6.9/angular-route.min.js"></script>
+    <script src="~/Content/Vendors/angular-1.6.9/angular-touch.min.js"></script>
+    <script src="~/Content/Vendors/angular-1.6.9/angular-cookies.min.js"></script>
+
+    <!--TOAST-->
+    <script src="~/Content/Vendors/toastr/toastr.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            toastr.options = {
+                "positionClass": "toast-bottom-right",
+                "timeOut": "1500",
+                "progressBar": true
+            };
+        });
+    </script>
+
+    <!--LOADING SPINNER-->
+    <script src="~/Content/Vendors/loading-spinner/spin.min.js"></script>
+    <script src="~/Content/Vendors/loading-spinner/angular-spinner.min.js"></script>
+    <script src="~/Content/Vendors/loading-spinner/angular-loading-spinner.js"></script>
+
+    <!--DEVEXTREME-->
+    <script src="~/Content/Vendors/DevExtreme/Lib/js/cldr.min.js"></script>
+    <script src="~/Content/Vendors/DevExtreme/Lib/js/cldr/event.min.js"></script>
+    <script src="~/Content/Vendors/DevExtreme/Lib/js/cldr/supplemental.min.js"></script>
+    <script src="~/Content/Vendors/DevExtreme/Lib/js/cldr/unresolved.min.js"></script>
+    <script src="~/Content/Vendors/DevExtreme/Lib/js/globalize.min.js"></script>
+    <script src="~/Content/Vendors/DevExtreme/Lib/js/globalize/message.min.js"></script>
+    <script src="~/Content/Vendors/DevExtreme/Lib/js/globalize/number.min.js"></script>
+    <script src="~/Content/Vendors/DevExtreme/Lib/js/globalize/currency.min.js"></script>
+    <script src="~/Content/Vendors/DevExtreme/Lib/js/globalize/date.min.js"></script>
+    @*<script src="~/Content/Vendors/DevExtreme/Lib/js/dx.all.js"></script>*@
+    <script src="~/Content/Vendors/DevExtreme/Lib/js/dx.all.debug.js"></script>
+
+
+    <!--NG-CKEditor-->
+    <script src="~/Content/Vendors/ng-ckeditor.min.js"></script>
+
+
+    <!--SPA-->
+    <script src="~/Scripts/Backend/backend.js"></script>
+
+    <!--Directive-->
+    <script src="~/Scripts/Backend/Directives/commonDirective.js"></script>
+
+    <!--Filter-->
+    <script src="~/Scripts/Backend/Filters/commonFilter.js"></script>
+
+    <!--Services-->
+    <script src="~/Scripts/Backend/Services/crudService.js"></script>
+    <script src="~/Scripts/Backend/Services/datetimeService.js"></script>
+    <script src="~/Scripts/Backend/Services/devextremeService.js"></script>
+    <script src="~/Scripts/Backend/Services/arrayService.js"></script>
+    <script src="~/Scripts/Backend/Services/stringService.js"></script>
+
+    <!--Category Post-->
+    @*<script src="~/Scripts/Backend/CategoryPost/listCategoryPostController.min.js"></script>
+        <script src="~/Scripts/Backend/CategoryPost/editCategoryPostController.min.js"></script>*@
+    <!--Post-->
+    <script src="~/Scripts/Backend/Post/listPostController.min.js"></script>
+    @*<script src="~/Scripts/Backend/Post/editPostController.min.js"></script>*@
+    <!--Category Project-->
+    @*<script src="~/Scripts/Backend/CategoryProject/listCategoryProjectController.min.js"></script>
+        <script src="~/Scripts/Backend/CategoryProject/editCategoryProjectController.min.js"></script>*@
+    <!--Project-->
+    @*<script src="~/Scripts/Backend/Project/listProjectController.min.js"></script>
+        <script src="~/Scripts/Backend/Project/editProjectController.min.js"></script>*@
+    <!--Tin BDS-->
+    @*<script src="~/Scripts/Backend/TinBDS/listTinBDSController.min.js"></script>
+        <script src="~/Scripts/Backend/TinBDS/editTinBDSController.min.js"></script>*@
+    <!--Video-->
+    @*<script src="~/Scripts/Backend/Video/listVideoController.min.js"></script>
+        <script src="~/Scripts/Backend/Video/editVideoController.min.js"></script>*@
+    <!--Album Image-->
+    @*<script src="~/Scripts/Backend/AlbumImage/listAlbumImageController.min.js"></script>
+        <script src="~/Scripts/Backend/AlbumImage/editAlbumImageController.min.js"></script>*@
+    <!--System-->
+    @*<script src="~/Scripts/Backend/System/infoCompanyController.min.js"></script>*@
+
+    <!--Image Upload-->
+    <script src="~/Scripts/Backend/ImageUpload/ImageUploadMultipleController.js"></script>
+
+</body>
+</html>
