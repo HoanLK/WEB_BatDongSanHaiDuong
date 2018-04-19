@@ -10,11 +10,13 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using CMS.Models;
 using CMS.Areas.Admin.Models;
+using System.Globalization;
 
 namespace CMS.APIs
 {
     public class PostAPIController : ApiController
     {
+        private const string _dateFormat = "dd-MM-yyyy";
         private BDSHDEntities db = new BDSHDEntities();
 
         // GET: api/PostAPI
@@ -55,37 +57,40 @@ namespace CMS.APIs
 
         //Get for ModelView
         // GET: api/PostAPI
-        public IQueryable<PostViewModel> GetPosts([FromUri] PostFilterModel filter)
+        public IQueryable<PostViewModel> GetPosts(bool? published, string startDate, string endDate )
         {
-            if (filter.ViewModel)
-            {
-                if (filter.Type == "table")
+            
+            var model = (
+                from p in db.Posts
+                orderby p.TimeCreated descending
+                select new PostViewModel()
                 {
-                    var model = (
-                        from cp in db.Posts
-                        orderby cp.TimeCreated descending
-                        select new PostViewModel()
-                        {
-                            Id = cp.Id,
-                            CategoryId = cp.CategoryId,
-                            Featured = cp.Featured,
-                            Published = cp.Published,
-                            TimeCreated = cp.TimeCreated,
-                            Title = cp.Title,
-                            Views = cp.Views
-                        }
-                    );
-
-                    if(filter.Published != null)
-                    {
-                        model = model.Where(p => p.Published == filter.Published);
-                    }
-
-                    return model;
+                    Id = p.Id,
+                    CategoryId = p.CategoryId,
+                    Featured = p.Featured,
+                    Published = p.Published,
+                    TimeCreated = p.TimeCreated,
+                    Title = p.Title,
+                    Views = p.Views
                 }
+            );
+
+            if (published != null)
+            {
+                model = model.Where(p => p.Published == published);
             }
 
-            return null;
+            if (DateTime.TryParse(startDate, out DateTime startDateConverted))
+            {
+                model = model.Where(p => p.TimeCreated >= startDateConverted);
+            }
+
+            if (DateTime.TryParse(endDate, out DateTime endDateConverted))
+            {
+                model = model.Where(p => p.TimeCreated <= endDateConverted);
+            }
+
+            return model;
         }
 
         // GET: api/PostAPI/5

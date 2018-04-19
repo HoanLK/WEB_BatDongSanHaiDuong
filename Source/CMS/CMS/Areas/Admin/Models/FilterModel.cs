@@ -11,11 +11,13 @@ namespace CMS.Areas.Admin.Models
 
     public class PostFilterModel
     {
-        public bool ViewModel { get; set; }
-        public string Type { get; set; }
-
+        public string ViewModel { get; set; }
         public bool? Published { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public string StartDay { get; set; }
+        public string StartMonth { get; set; }
+        public string StartYear { get; set; }
+        public string EndDay { get; set; }
+        public string EndMonth { get; set; }
+        public string EndYear { get; set; }
     }
 }
