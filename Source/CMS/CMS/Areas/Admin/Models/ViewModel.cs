@@ -27,8 +27,8 @@ namespace CMS.Areas.Admin.Models
         public int Id { get; set; }
         public Nullable<int> CategoryId { get; set; }
         public string Title { get; set; }
-        public bool Published { get; set; }
         public bool Featured { get; set; }
+        public bool Published { get; set; }
         public Nullable<double> Views { get; set; }
         public DateTime TimeCreated { get; set; }
     }

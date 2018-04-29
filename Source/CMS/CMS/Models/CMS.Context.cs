@@ -26,6 +26,7 @@ namespace CMS.Models
         }
     
         public virtual DbSet<AlbumImage> AlbumImages { get; set; }
+        public virtual DbSet<Aspect> Aspects { get; set; }
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
@@ -33,23 +34,20 @@ namespace CMS.Models
         public virtual DbSet<Banner> Banners { get; set; }
         public virtual DbSet<CategoryPost> CategoryPosts { get; set; }
         public virtual DbSet<CategoryProject> CategoryProjects { get; set; }
-        public virtual DbSet<Duong> Duongs { get; set; }
-        public virtual DbSet<HoSoPhapLyBD> HoSoPhapLyBDS { get; set; }
-        public virtual DbSet<HuongBD> HuongBDS { get; set; }
-        public virtual DbSet<Huyen> Huyens { get; set; }
+        public virtual DbSet<City> Cities { get; set; }
+        public virtual DbSet<District> Districts { get; set; }
         public virtual DbSet<ImageBanner> ImageBanners { get; set; }
         public virtual DbSet<ImageProject> ImageProjects { get; set; }
         public virtual DbSet<ImageTinBD> ImageTinBDS { get; set; }
         public virtual DbSet<InfoCompany> InfoCompanies { get; set; }
         public virtual DbSet<ItemAlbumImage> ItemAlbumImages { get; set; }
-        public virtual DbSet<KhoangTienBD> KhoangTienBDS { get; set; }
-        public virtual DbSet<LoaiBD> LoaiBDS { get; set; }
-        public virtual DbSet<MucDichBD> MucDichBDS { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
+        public virtual DbSet<PriceType> PriceTypes { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
-        public virtual DbSet<TinBD> TinBDS { get; set; }
-        public virtual DbSet<Tinh> Tinhs { get; set; }
+        public virtual DbSet<Property> Properties { get; set; }
+        public virtual DbSet<PropertyType> PropertyTypes { get; set; }
+        public virtual DbSet<Street> Streets { get; set; }
         public virtual DbSet<Video> Videos { get; set; }
-        public virtual DbSet<Xa> Xas { get; set; }
+        public virtual DbSet<Ward> Wards { get; set; }
     }
 }

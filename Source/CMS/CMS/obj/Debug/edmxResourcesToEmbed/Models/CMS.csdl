@@ -2,6 +2,7 @@
 <Schema Namespace="BDSHDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="BDSHDEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="AlbumImages" EntityType="BDSHDModel.AlbumImage" />
+    <EntitySet Name="Aspects" EntityType="BDSHDModel.Aspect" />
     <EntitySet Name="AspNetRoles" EntityType="BDSHDModel.AspNetRole" />
     <EntitySet Name="AspNetUserClaims" EntityType="BDSHDModel.AspNetUserClaim" />
     <EntitySet Name="AspNetUserLogins" EntityType="BDSHDModel.AspNetUserLogin" />
@@ -9,24 +10,21 @@
     <EntitySet Name="Banners" EntityType="BDSHDModel.Banner" />
     <EntitySet Name="CategoryPosts" EntityType="BDSHDModel.CategoryPost" />
     <EntitySet Name="CategoryProjects" EntityType="BDSHDModel.CategoryProject" />
-    <EntitySet Name="Duongs" EntityType="BDSHDModel.Duong" />
-    <EntitySet Name="HoSoPhapLyBDS" EntityType="BDSHDModel.HoSoPhapLyBD" />
-    <EntitySet Name="HuongBDS" EntityType="BDSHDModel.HuongBD" />
-    <EntitySet Name="Huyens" EntityType="BDSHDModel.Huyen" />
+    <EntitySet Name="Cities" EntityType="BDSHDModel.City" />
+    <EntitySet Name="Districts" EntityType="BDSHDModel.District" />
     <EntitySet Name="ImageBanners" EntityType="BDSHDModel.ImageBanner" />
     <EntitySet Name="ImageProjects" EntityType="BDSHDModel.ImageProject" />
     <EntitySet Name="ImageTinBDS" EntityType="BDSHDModel.ImageTinBD" />
     <EntitySet Name="InfoCompanies" EntityType="BDSHDModel.InfoCompany" />
     <EntitySet Name="ItemAlbumImages" EntityType="BDSHDModel.ItemAlbumImage" />
-    <EntitySet Name="KhoangTienBDS" EntityType="BDSHDModel.KhoangTienBD" />
-    <EntitySet Name="LoaiBDS" EntityType="BDSHDModel.LoaiBD" />
-    <EntitySet Name="MucDichBDS" EntityType="BDSHDModel.MucDichBD" />
     <EntitySet Name="Posts" EntityType="BDSHDModel.Post" />
+    <EntitySet Name="PriceTypes" EntityType="BDSHDModel.PriceType" />
     <EntitySet Name="Projects" EntityType="BDSHDModel.Project" />
-    <EntitySet Name="TinBDS" EntityType="BDSHDModel.TinBD" />
-    <EntitySet Name="Tinhs" EntityType="BDSHDModel.Tinh" />
+    <EntitySet Name="Properties" EntityType="BDSHDModel.Property" />
+    <EntitySet Name="PropertyTypes" EntityType="BDSHDModel.PropertyType" />
+    <EntitySet Name="Streets" EntityType="BDSHDModel.Street" />
     <EntitySet Name="Videos" EntityType="BDSHDModel.Video" />
-    <EntitySet Name="Xas" EntityType="BDSHDModel.Xa" />
+    <EntitySet Name="Wards" EntityType="BDSHDModel.Ward" />
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="BDSHDModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
       <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
@@ -61,6 +59,14 @@
     <Property Name="TimeCreated" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="Views" Type="Double" />
+  </EntityType>
+  <EntityType Name="Aspect">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Order" Type="Int32" />
   </EntityType>
   <EntityType Name="AspNetRole">
     <Key>
@@ -165,38 +171,21 @@
     <Property Name="TimeCreated" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="Duong">
+  <EntityType Name="City">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Ten" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="HuyenId" Type="Int32" />
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="HoSoPhapLyBD">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
-    <Property Name="Ten" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="STT" Type="Int32" />
-  </EntityType>
-  <EntityType Name="HuongBD">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
-    <Property Name="Ten" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="STT" Type="Int32" />
-  </EntityType>
-  <EntityType Name="Huyen">
+  <EntityType Name="District">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="TinhId" Type="Int32" />
-    <Property Name="STT" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CityId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Order" Type="Int32" />
   </EntityType>
   <EntityType Name="ImageBanner">
     <Key>
@@ -261,32 +250,6 @@
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="KhoangTienBD">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
-    <Property Name="Ten" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Min" Type="Double" />
-    <Property Name="Max" Type="Double" />
-    <Property Name="STT" Type="Int32" />
-  </EntityType>
-  <EntityType Name="LoaiBD">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
-    <Property Name="Ten" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="STT" Type="Int32" />
-  </EntityType>
-  <EntityType Name="MucDichBD">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
-    <Property Name="Ten" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="STT" Type="Int32" />
-  </EntityType>
   <EntityType Name="Post">
     <Key>
       <PropertyRef Name="Id" />
@@ -310,6 +273,16 @@
     <Property Name="TimeCreated" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="Views" Type="Double" />
+  </EntityType>
+  <EntityType Name="PriceType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Min" Type="Double" />
+    <Property Name="Max" Type="Double" />
+    <Property Name="Order" Type="Int32" />
   </EntityType>
   <EntityType Name="Project">
     <Key>
@@ -340,32 +313,35 @@
     <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="Views" Type="Double" Nullable="false" />
   </EntityType>
-  <EntityType Name="TinBD">
+  <EntityType Name="Property">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MaBDS" Type="String" MaxLength="53" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
-    <Property Name="TieuDe" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
-    <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="TinhId" Type="Int32" />
-    <Property Name="HuyenId" Type="Int32" />
-    <Property Name="XaId" Type="Int32" />
-    <Property Name="DuongId" Type="Int32" />
-    <Property Name="LoaiBDSId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-    <Property Name="HuongBDSId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-    <Property Name="MucDichBDSId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-    <Property Name="HoSoPhapLyBDSId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-    <Property Name="KhoangTienBDSId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-    <Property Name="GiaBan" Type="Double" />
-    <Property Name="DienTichDat" Type="Double" />
+    <Property Name="Code" Type="String" MaxLength="53" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CityId" Type="Int32" />
+    <Property Name="DistrictId" Type="Int32" />
+    <Property Name="WardsId" Type="Int32" />
+    <Property Name="StreetId" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="PropertyTypeId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="AspectId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="PriceTypeId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="PriceMin" Type="Double" />
+    <Property Name="PriceMax" Type="Double" />
+    <Property Name="Acreage" Type="Double" />
+    <Property Name="AcreageMin" Type="Double" />
+    <Property Name="AcreageMax" Type="Double" />
     <Property Name="Published" Type="Boolean" Nullable="false" />
     <Property Name="Featured" Type="Boolean" Nullable="false" />
     <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="TenNguoiLH" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="DiaChiLH" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="DienThoaiLH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="EmailLH" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NameContact" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="AddressContact" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberContact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmailContact" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Note" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
     <Property Name="MetaDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="MetaKewords" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
@@ -375,12 +351,21 @@
     <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="Views" Type="Double" Nullable="false" />
   </EntityType>
-  <EntityType Name="Tinh">
+  <EntityType Name="PropertyType">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Order" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Street">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="DistrictId" Type="Int32" />
   </EntityType>
   <EntityType Name="Video">
     <Key>
@@ -404,14 +389,14 @@
     <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="Views" Type="Double" />
   </EntityType>
-  <EntityType Name="Xa">
+  <EntityType Name="Ward">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="HuyenId" Type="Int32" />
-    <Property Name="STT" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DistrictId" Type="Int32" />
+    <Property Name="Order" Type="Int32" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Type="BDSHDModel.AspNetUser" Role="AspNetUser" Multiplicity="1">

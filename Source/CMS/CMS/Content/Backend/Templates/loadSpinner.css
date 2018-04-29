@@ -1,6 +1,13 @@
 ﻿/* Center the loader */
-#myContent {
+.opacity1{
+    opacity: 1;
+}
+
+.opacity0{
     opacity: 0;
+}
+
+#myPage {
     -webkit-transition: opacity 1s ease-in-out;
     -moz-transition: opacity 1s ease-in-out;
     -ms-transition: opacity 1s ease-in-out;

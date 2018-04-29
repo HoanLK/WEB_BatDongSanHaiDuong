@@ -41,7 +41,7 @@
     }
 
 .page-main {
-    height: calc(100vh - 82px - 60px);
+    height: calc(100vh - 82px);
 }
 
 .portlet.light.bordered {

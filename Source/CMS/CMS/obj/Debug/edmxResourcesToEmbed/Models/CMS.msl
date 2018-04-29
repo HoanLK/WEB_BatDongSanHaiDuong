@@ -24,6 +24,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Aspects">
+      <EntityTypeMapping TypeName="BDSHDModel.Aspect">
+        <MappingFragment StoreEntitySet="Aspect">
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="AspNetRoles">
       <EntityTypeMapping TypeName="BDSHDModel.AspNetRole">
         <MappingFragment StoreEntitySet="AspNetRoles">
@@ -126,39 +135,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Duongs">
-      <EntityTypeMapping TypeName="BDSHDModel.Duong">
-        <MappingFragment StoreEntitySet="Duong">
-          <ScalarProperty Name="HuyenId" ColumnName="HuyenId" />
-          <ScalarProperty Name="Ten" ColumnName="Ten" />
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="BDSHDModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="HoSoPhapLyBDS">
-      <EntityTypeMapping TypeName="BDSHDModel.HoSoPhapLyBD">
-        <MappingFragment StoreEntitySet="HoSoPhapLyBDS">
-          <ScalarProperty Name="STT" ColumnName="STT" />
-          <ScalarProperty Name="Ten" ColumnName="Ten" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="HuongBDS">
-      <EntityTypeMapping TypeName="BDSHDModel.HuongBD">
-        <MappingFragment StoreEntitySet="HuongBDS">
-          <ScalarProperty Name="STT" ColumnName="STT" />
-          <ScalarProperty Name="Ten" ColumnName="Ten" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Huyens">
-      <EntityTypeMapping TypeName="BDSHDModel.Huyen">
-        <MappingFragment StoreEntitySet="Huyen">
-          <ScalarProperty Name="STT" ColumnName="STT" />
-          <ScalarProperty Name="TinhId" ColumnName="TinhId" />
-          <ScalarProperty Name="Ten" ColumnName="Ten" />
+    <EntitySetMapping Name="Districts">
+      <EntityTypeMapping TypeName="BDSHDModel.District">
+        <MappingFragment StoreEntitySet="District">
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -231,35 +221,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="KhoangTienBDS">
-      <EntityTypeMapping TypeName="BDSHDModel.KhoangTienBD">
-        <MappingFragment StoreEntitySet="KhoangTienBDS">
-          <ScalarProperty Name="STT" ColumnName="STT" />
-          <ScalarProperty Name="Max" ColumnName="Max" />
-          <ScalarProperty Name="Min" ColumnName="Min" />
-          <ScalarProperty Name="Ten" ColumnName="Ten" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="LoaiBDS">
-      <EntityTypeMapping TypeName="BDSHDModel.LoaiBD">
-        <MappingFragment StoreEntitySet="LoaiBDS">
-          <ScalarProperty Name="STT" ColumnName="STT" />
-          <ScalarProperty Name="Ten" ColumnName="Ten" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MucDichBDS">
-      <EntityTypeMapping TypeName="BDSHDModel.MucDichBD">
-        <MappingFragment StoreEntitySet="MucDichBDS">
-          <ScalarProperty Name="STT" ColumnName="STT" />
-          <ScalarProperty Name="Ten" ColumnName="Ten" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Posts">
       <EntityTypeMapping TypeName="BDSHDModel.Post">
         <MappingFragment StoreEntitySet="Posts">
@@ -281,6 +242,17 @@
           <ScalarProperty Name="Alias" ColumnName="Alias" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PriceTypes">
+      <EntityTypeMapping TypeName="BDSHDModel.PriceType">
+        <MappingFragment StoreEntitySet="PriceType">
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="Max" ColumnName="Max" />
+          <ScalarProperty Name="Min" ColumnName="Min" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -315,9 +287,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TinBDS">
-      <EntityTypeMapping TypeName="BDSHDModel.TinBD">
-        <MappingFragment StoreEntitySet="TinBDS">
+    <EntitySetMapping Name="Properties">
+      <EntityTypeMapping TypeName="BDSHDModel.Property">
+        <MappingFragment StoreEntitySet="Property">
           <ScalarProperty Name="Views" ColumnName="Views" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="TimeCreated" ColumnName="TimeCreated" />
@@ -326,35 +298,48 @@
           <ScalarProperty Name="MetaKewords" ColumnName="MetaKewords" />
           <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
           <ScalarProperty Name="Note" ColumnName="Note" />
-          <ScalarProperty Name="EmailLH" ColumnName="EmailLH" />
-          <ScalarProperty Name="DienThoaiLH" ColumnName="DienThoaiLH" />
-          <ScalarProperty Name="DiaChiLH" ColumnName="DiaChiLH" />
-          <ScalarProperty Name="TenNguoiLH" ColumnName="TenNguoiLH" />
+          <ScalarProperty Name="EmailContact" ColumnName="EmailContact" />
+          <ScalarProperty Name="PhoneNumberContact" ColumnName="PhoneNumberContact" />
+          <ScalarProperty Name="AddressContact" ColumnName="AddressContact" />
+          <ScalarProperty Name="NameContact" ColumnName="NameContact" />
           <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="Featured" ColumnName="Featured" />
           <ScalarProperty Name="Published" ColumnName="Published" />
-          <ScalarProperty Name="DienTichDat" ColumnName="DienTichDat" />
-          <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
-          <ScalarProperty Name="KhoangTienBDSId" ColumnName="KhoangTienBDSId" />
-          <ScalarProperty Name="HoSoPhapLyBDSId" ColumnName="HoSoPhapLyBDSId" />
-          <ScalarProperty Name="MucDichBDSId" ColumnName="MucDichBDSId" />
-          <ScalarProperty Name="HuongBDSId" ColumnName="HuongBDSId" />
-          <ScalarProperty Name="LoaiBDSId" ColumnName="LoaiBDSId" />
-          <ScalarProperty Name="DuongId" ColumnName="DuongId" />
-          <ScalarProperty Name="XaId" ColumnName="XaId" />
-          <ScalarProperty Name="HuyenId" ColumnName="HuyenId" />
-          <ScalarProperty Name="TinhId" ColumnName="TinhId" />
-          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
-          <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
-          <ScalarProperty Name="MaBDS" ColumnName="MaBDS" />
+          <ScalarProperty Name="AcreageMax" ColumnName="AcreageMax" />
+          <ScalarProperty Name="AcreageMin" ColumnName="AcreageMin" />
+          <ScalarProperty Name="Acreage" ColumnName="Acreage" />
+          <ScalarProperty Name="PriceMax" ColumnName="PriceMax" />
+          <ScalarProperty Name="PriceMin" ColumnName="PriceMin" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PriceTypeId" ColumnName="PriceTypeId" />
+          <ScalarProperty Name="AspectId" ColumnName="AspectId" />
+          <ScalarProperty Name="PropertyTypeId" ColumnName="PropertyTypeId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="StreetId" ColumnName="StreetId" />
+          <ScalarProperty Name="WardsId" ColumnName="WardsId" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Tinhs">
-      <EntityTypeMapping TypeName="BDSHDModel.Tinh">
-        <MappingFragment StoreEntitySet="Tinh">
-          <ScalarProperty Name="Ten" ColumnName="Ten" />
+    <EntitySetMapping Name="PropertyTypes">
+      <EntityTypeMapping TypeName="BDSHDModel.PropertyType">
+        <MappingFragment StoreEntitySet="PropertyType">
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Streets">
+      <EntityTypeMapping TypeName="BDSHDModel.Street">
+        <MappingFragment StoreEntitySet="Street">
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -382,12 +367,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Xas">
-      <EntityTypeMapping TypeName="BDSHDModel.Xa">
-        <MappingFragment StoreEntitySet="Xa">
-          <ScalarProperty Name="STT" ColumnName="STT" />
-          <ScalarProperty Name="HuyenId" ColumnName="HuyenId" />
-          <ScalarProperty Name="Ten" ColumnName="Ten" />
+    <EntitySetMapping Name="Wards">
+      <EntityTypeMapping TypeName="BDSHDModel.Ward">
+        <MappingFragment StoreEntitySet="Wards">
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

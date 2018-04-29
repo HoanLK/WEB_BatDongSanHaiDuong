@@ -11,7 +11,7 @@
         //Generate Alias
         services.GenAlias = function (input) {
             //Đổi chữ hoa thành chữ thường
-            slug = input.toLowerCase();
+            var slug = input.toLowerCase();
 
             //Đổi ký tự có dấu thành không dấu
             slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');

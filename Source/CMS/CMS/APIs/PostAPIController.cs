@@ -8,89 +8,35 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using Microsoft.AspNet.Identity;
 using CMS.Models;
 using CMS.Areas.Admin.Models;
 using System.Globalization;
+using DevExtreme.AspNet.Data;
 
 namespace CMS.APIs
 {
     public class PostAPIController : ApiController
     {
-        private const string _dateFormat = "dd-MM-yyyy";
         private BDSHDEntities db = new BDSHDEntities();
 
+        //Get Datasource Devextreme
         // GET: api/PostAPI
-        public IQueryable<Post> GetPosts()
+        public HttpResponseMessage GetPosts(DataSourceLoadOptions loadOptions)
         {
-            return db.Posts;
-        }
+            var posts = from p in db.Posts
+                        select new PostViewModel()
+                        {
+                            Id = p.Id,
+                            CategoryId = p.CategoryId,
+                            Featured = p.Featured,
+                            Published = p.Published,
+                            TimeCreated = p.TimeCreated,
+                            Title = p.Title,
+                            Views = p.Views
+                        };
 
-        //Get for ModelView
-        // GET: api/PostAPI
-        //public IQueryable<PostViewModel> GetPosts(bool viewmodel, string type)
-        //{
-        //    if (viewmodel)
-        //    {
-        //        if (type == "table")
-        //        {
-        //            var model = (
-        //                from cp in db.Posts
-        //                orderby cp.TimeCreated descending
-        //                select new PostViewModel()
-        //                {
-        //                    Id = cp.Id,
-        //                    CategoryId = cp.CategoryId,
-        //                    Featured = cp.Featured,
-        //                    Published = cp.Published,
-        //                    TimeCreated = cp.TimeCreated,
-        //                    Title = cp.Title,
-        //                    Views = cp.Views
-        //                }
-        //            );
-
-        //            return model;
-        //        }
-        //    }
-
-        //    return null;
-        //}
-
-        //Get for ModelView
-        // GET: api/PostAPI
-        public IQueryable<PostViewModel> GetPosts(bool? published, string startDate, string endDate )
-        {
-            
-            var model = (
-                from p in db.Posts
-                orderby p.TimeCreated descending
-                select new PostViewModel()
-                {
-                    Id = p.Id,
-                    CategoryId = p.CategoryId,
-                    Featured = p.Featured,
-                    Published = p.Published,
-                    TimeCreated = p.TimeCreated,
-                    Title = p.Title,
-                    Views = p.Views
-                }
-            );
-
-            if (published != null)
-            {
-                model = model.Where(p => p.Published == published);
-            }
-
-            if (DateTime.TryParse(startDate, out DateTime startDateConverted))
-            {
-                model = model.Where(p => p.TimeCreated >= startDateConverted);
-            }
-
-            if (DateTime.TryParse(endDate, out DateTime endDateConverted))
-            {
-                model = model.Where(p => p.TimeCreated <= endDateConverted);
-            }
-
-            return model;
+            return Request.CreateResponse(DataSourceLoader.Load(posts, loadOptions));
         }
 
         // GET: api/PostAPI/5
@@ -150,13 +96,25 @@ namespace CMS.APIs
                 return BadRequest(ModelState);
             }
 
+            string idCurrentUser = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(idCurrentUser))
+            {
+                post.UserId = idCurrentUser;
+                post.TimeCreated = DateTime.Now;
+            }
+            else
+            {
+                return BadRequest();
+            }
+
             db.Posts.Add(post);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = post.Id }, post);
         }
 
-        //Delete 1 record
+        //Delete 1 Record
         // DELETE: api/PostAPI/5
         [ResponseType(typeof(Post))]
         public IHttpActionResult DeletePost(int id)
@@ -173,9 +131,9 @@ namespace CMS.APIs
             return Ok(post);
         }
 
-        //Delete list
-        // DELETE: api/PostAPI?ids=...
-        public int DeletePost(string ids)
+        //Delete List
+        // DELETE: api/PostAPI?ids=1,2,3
+        public IHttpActionResult DeletePost(string ids)
         {
             var listIds = ids.Split(',');
             List<Post> posts = new List<Post>();
@@ -189,6 +147,14 @@ namespace CMS.APIs
                     {
                         posts.Add(post);
                     }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+                else
+                {
+                    return BadRequest();
                 }
             }
 
@@ -197,7 +163,7 @@ namespace CMS.APIs
             try
             {
                 db.SaveChanges();
-                return 1;
+                return Ok();
             }
             catch (Exception)
             {
@@ -214,6 +180,7 @@ namespace CMS.APIs
             base.Dispose(disposing);
         }
 
+        //Check Exits
         private bool PostExists(int id)
         {
             return db.Posts.Count(e => e.Id == id) > 0;

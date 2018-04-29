@@ -8,6 +8,7 @@ D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\bin\CKFinder.dll
 D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\bin\CKFinder_FileEditor.dll
 D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\bin\CKFinder_ImageResize.dll
 D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\bin\CKFinder_Watermark.dll
+D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\bin\DevExtreme.AspNet.Data.dll
 D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\bin\EntityFramework.dll
 D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\bin\EntityFramework.SqlServer.dll
 D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\bin\Microsoft.AI.Agent.Intercept.dll
@@ -47,6 +48,7 @@ D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\bin\CKFinder.pdb
 D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\bin\CKFinder_FileEditor.pdb
 D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\bin\CKFinder_ImageResize.pdb
 D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\bin\CKFinder_Watermark.pdb
+D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\bin\DevExtreme.AspNet.Data.xml
 D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\bin\EntityFramework.xml
 D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\bin\EntityFramework.SqlServer.xml
 D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\bin\Microsoft.AI.DependencyCollector.xml
@@ -74,8 +76,8 @@ D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\bin\System.Web.WebPages.xml
 D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\bin\System.Web.WebPages.Deployment.xml
 D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\bin\System.Web.WebPages.Razor.xml
 D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\bin\System.Web.Optimization.xml
+D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\obj\Debug\CMS.csprojResolveAssemblyReference.cache
 D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\obj\Debug\CMS.csproj.CoreCompileInputs.cache
 D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\obj\Debug\CMS.csproj.CopyComplete
 D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\obj\Debug\CMS.dll
 D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\obj\Debug\CMS.pdb
-D:\Work\Website\BatDongSanHaiDuong\Source\CMS\CMS\obj\Debug\CMS.csprojResolveAssemblyReference.cache

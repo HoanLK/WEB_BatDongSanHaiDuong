@@ -10,10 +10,10 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using CMS.Models;
 using CMS.Areas.Admin.Models;
+using Microsoft.AspNet.Identity;
 
 namespace CMS.APIs
 {
-    [Authorize]
     public class CategoryPostAPIController : ApiController
     {
         private BDSHDEntities db = new BDSHDEntities();
@@ -124,6 +124,18 @@ namespace CMS.APIs
                 return BadRequest(ModelState);
             }
 
+            string idCurrentUser = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(idCurrentUser))
+            {
+                categoryPost.UserId = idCurrentUser;
+                categoryPost.TimeCreated = DateTime.Now;
+            }
+            else
+            {
+                return BadRequest();
+            }
+
             db.CategoryPosts.Add(categoryPost);
             db.SaveChanges();
 
@@ -143,6 +155,7 @@ namespace CMS.APIs
 
             RemoveParent(categoryPost.Id);
             RemoveCategoryId(categoryPost.Id);
+
             db.CategoryPosts.Remove(categoryPost);
             db.SaveChanges();
 
@@ -151,7 +164,7 @@ namespace CMS.APIs
 
         //Delete list
         // DELETE: api/CategoryPostAPI?ids=...
-        public int DeleteCategoryPost(string ids)
+        public IHttpActionResult DeleteCategoryPost(string ids)
         {
             var listIds = ids.Split(',');
             List<CategoryPost> categoryPosts = new List<CategoryPost>();
@@ -167,6 +180,14 @@ namespace CMS.APIs
                         RemoveCategoryId(categoryPost.Id);
                         categoryPosts.Add(categoryPost);
                     }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+                else
+                {
+                    return BadRequest();
                 }
             }
 
@@ -175,7 +196,7 @@ namespace CMS.APIs
             try
             {
                 db.SaveChanges();
-                return 1;
+                return Ok();
             }
             catch (Exception)
             {

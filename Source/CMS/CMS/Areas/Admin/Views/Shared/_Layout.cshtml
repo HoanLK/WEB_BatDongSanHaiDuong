@@ -19,15 +19,14 @@
         var loadSpinner;
 
         function LoadSpinner() {
-            setTimeout(ShowPage, 500);
+            setTimeout(ShowContent, 500);
         }
 
-        function ShowPage() {
-            document.getElementById("loader").style.opacity = 0;
-            document.getElementById("myContent").style.opacity = 1;
+        function ShowContent() {
+            document.getElementById("spinLoader").style.opacity = 0;
+            document.getElementById("myPage").style.opacity = 1;
         }
     </script>
-
 
     <!-- GLOBAL MANDATORY STYLES -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
@@ -58,15 +57,18 @@
 
     <link rel="shortcut icon" href="~/Content/Backend/Images/favicon.ico" />
 
-
-
-
+    <style>
+        .cke_maximized {
+            /*top: 47px !important;*/
+            z-index: 10000 !important;
+        }
+    </style>
 
 </head>
 <!-- END HEAD -->
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-sidebar-fixed page-content-white page-md" onload="LoadSpinner()">
-    @*<div id="loader"></div>*@
-    <div class="sk-circle" id="loader">
+    <!--Load Spinner-->
+    <div class="sk-circle" id="spinLoader">
         <div class="sk-circle1 sk-child"></div>
         <div class="sk-circle2 sk-child"></div>
         <div class="sk-circle3 sk-child"></div>
@@ -80,7 +82,7 @@
         <div class="sk-circle11 sk-child"></div>
         <div class="sk-circle12 sk-child"></div>
     </div>
-    <div class="page-wrapper" id="myContent">
+    <div class="page-wrapper opacity0" id="myPage">
         <!-- HEADER -->
         <div class="page-header navbar navbar-fixed-top">
             <!-- HEADER INNER -->
@@ -89,7 +91,7 @@
                 <div class="page-logo">
                     <a href="index.html">
                         @*<img src="~/Content/Backend/Templates/metronic475/layouts/layout/img/logo.png" alt="logo" class="logo-default" />*@
-                        <img src="~/Content/Backend/Images/Logo.png" alt="logo" class="logo-default"/>
+                        <img src="~/Content/Backend/Images/Logo.png" alt="logo" class="logo-default" />
                     </a>
                     <div class="menu-toggler sidebar-toggler">
                         <span></span>
@@ -161,11 +163,11 @@
     <script src="~/Content/Vendors/DevExtreme/Lib/js/jszip.min.js"></script>
 
     <!--AngularJS-->
-    <script src="~/Content/Vendors/angular-1.6.9/angular.min.js"></script>
-    <script src="~/Content/Vendors/angular-1.6.9/angular-sanitize.min.js"></script>
-    <script src="~/Content/Vendors/angular-1.6.9/angular-route.min.js"></script>
-    <script src="~/Content/Vendors/angular-1.6.9/angular-touch.min.js"></script>
-    <script src="~/Content/Vendors/angular-1.6.9/angular-cookies.min.js"></script>
+    <script src="~/Content/Vendors/angular/angular.min.js"></script>
+    <script src="~/Content/Vendors/angular/angular-sanitize.min.js"></script>
+    <script src="~/Content/Vendors/angular/angular-route.min.js"></script>
+    <script src="~/Content/Vendors/angular/angular-touch.min.js"></script>
+    <script src="~/Content/Vendors/angular/angular-cookies.min.js"></script>
 
     <!--TOAST-->
     <script src="~/Content/Vendors/toastr/toastr.min.js"></script>
@@ -196,6 +198,7 @@
     <script src="~/Content/Vendors/DevExtreme/Lib/js/globalize/date.min.js"></script>
     @*<script src="~/Content/Vendors/DevExtreme/Lib/js/dx.all.js"></script>*@
     <script src="~/Content/Vendors/DevExtreme/Lib/js/dx.all.debug.js"></script>
+    <script src="~/Content/Vendors/devextreme-aspnet-data/js/dx.aspnet.data.js"></script>
 
 
     <!--NG-CKEditor-->
@@ -212,27 +215,41 @@
     <script src="~/Scripts/Backend/Filters/commonFilter.js"></script>
 
     <!--Services-->
-    <script src="~/Scripts/Backend/Services/crudService.js"></script>
+    <script src="~/Scripts/Backend/Services/commonService.js"></script>
     <script src="~/Scripts/Backend/Services/datetimeService.js"></script>
     <script src="~/Scripts/Backend/Services/devextremeService.js"></script>
     <script src="~/Scripts/Backend/Services/arrayService.js"></script>
     <script src="~/Scripts/Backend/Services/stringService.js"></script>
 
-    <!--Category Post-->
-    @*<script src="~/Scripts/Backend/CategoryPost/listCategoryPostController.min.js"></script>
-        <script src="~/Scripts/Backend/CategoryPost/editCategoryPostController.min.js"></script>*@
-    <!--Post-->
-    <script src="~/Scripts/Backend/Post/listPostController.min.js"></script>
-    @*<script src="~/Scripts/Backend/Post/editPostController.min.js"></script>*@
+    <!-- CATEGORY POST -->
+    <script src="~/Scripts/Backend/CategoryPost/categoryPostService.js"></script>
+    <script src="~/Scripts/Backend/CategoryPost/listCategoryPostController.js"></script>
+    <script src="~/Scripts/Backend/CategoryPost/editCategoryPostController.js"></script>
+
+    <!-- CITY -->
+    <script src="~/Scripts/Backend/City/cityService.js"></script>
+    <!-- DISTRICT -->
+    <script src="~/Scripts/Backend/District/districtService.js"></script>
+    <!-- WARDS -->
+    <script src="~/Scripts/Backend/Wards/wardsService.js"></script>
+    <!-- STREET -->
+    <script src="~/Scripts/Backend/Street/streetService.js"></script>
+    <!-- PROPERTY TYPE -->
+    <script src="~/Scripts/Backend/PropertyType/propertyTypeService.js"></script>
+    <!-- POST -->
+    <script src="~/Scripts/Backend/Post/postService.js"></script>
+    <script src="~/Scripts/Backend/Post/listPostController.js"></script>
+    <script src="~/Scripts/Backend/Post/editPostController.js"></script>
     <!--Category Project-->
     @*<script src="~/Scripts/Backend/CategoryProject/listCategoryProjectController.min.js"></script>
         <script src="~/Scripts/Backend/CategoryProject/editCategoryProjectController.min.js"></script>*@
     <!--Project-->
     @*<script src="~/Scripts/Backend/Project/listProjectController.min.js"></script>
         <script src="~/Scripts/Backend/Project/editProjectController.min.js"></script>*@
-    <!--Tin BDS-->
-    @*<script src="~/Scripts/Backend/TinBDS/listTinBDSController.min.js"></script>
-        <script src="~/Scripts/Backend/TinBDS/editTinBDSController.min.js"></script>*@
+    <!-- PROPERTY -->
+    <script src="~/Scripts/Backend/Property/propertyService.js"></script>
+    <script src="~/Scripts/Backend/Property/listPropertyController.js"></script>
+    <script src="~/Scripts/Backend/Property/editPropertyController.js"></script>
     <!--Video-->
     @*<script src="~/Scripts/Backend/Video/listVideoController.min.js"></script>
         <script src="~/Scripts/Backend/Video/editVideoController.min.js"></script>*@

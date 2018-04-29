@@ -7,50 +7,9 @@
     </ul>
 </div>
 
-<!--FILTER-->
-<div class="row">
-    <!--Trạng thái-->
-    <div class="form-group col-md-2 col-sm-2 col-xs-12">
-        <div class="dx-field">
-            <label>Trạng thái</label>
-            <div dx-select-box="controlFilter.Published"></div>
-        </div>
-    </div>
-    <!--Start Date-->
-    <div class="form-group col-md-2 col-sm-2 col-xs-12">
-        <div class="dx-field">
-            <label>Từ ngày</label>
-            <div dx-date-box="controlFilter.StartDate" style="width: 100%"></div>
-        </div>
-    </div>
-    <!--End Date-->
-    <div class="form-group col-md-2 col-sm-2 col-xs-12">
-        <div class="dx-field">
-            <label>Đến ngày</label>
-            <div dx-date-box="controlFilter.EndDate" style="width: 100%"></div>
-        </div>
-    </div>
-
-    <!--Mã-->
-    <div class="form-group col-md-3 col-sm-3 col-xs-12">
-        <div class="dx-field">
-            <label>Mã<span class="text-danger" title="Vui lòng nhập trường này" data-toggle="tooltip">*</span></label>
-            <div dx-text-box="controlQuanHe.Id"></div>
-        </div>
-    </div>
-
-
-    <div class="col-md-2 col-sm-2 col-xs-12">
-        <div class="pull-left" style="margin-top:15px" dx-button="{ text: 'Tìm kiếm', icon: 'find', onClick: GetPosts, type: 'default' }"></div>
-    </div>
-</div>
-
 <!--Main-->
 <div class="row page-main">
     <div class="portlet light bordered">
-
-
-
         <!--Grid Post-->
         <div dx-data-grid="gridPosts" dx-item-alias="item" id="post">
             <span us-spinner="{radius:15, width:4, length: 8}"></span>

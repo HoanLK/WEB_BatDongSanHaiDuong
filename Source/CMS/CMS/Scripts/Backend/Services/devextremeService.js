@@ -35,6 +35,7 @@
             columnHidungEnabled: false,
             columnMinWidth: null,
             columnResizingMode: "widget",
+            dateSerializationFormat: "MM/dd/yyyy",
             editing: {
                 mode: "cell",
                 allowAdding: false,
@@ -54,11 +55,25 @@
                 }
             },
             filterRow: {
+                applyFilter: "onClick",
                 applyFilterText: "Áp dụng bộ lọc",
                 betweenEndText: "Kết thúc",
                 betweenStartText: "Bắt đầu",
+                operationDescriptions: {
+                    between: "Giữa",
+                    contains: "Chứa",
+                    endsWith: "Kết thúc với",
+                    equal: "Bằng",
+                    greaterThan: "Lớn hơn",
+                    greaterThanOrEqual: "Lớn hơn hoặc bằng",
+                    lessThan: "Nhỏ hơn",
+                    lessThanOrQual: "Nhỏ hơn hoặc bằng",
+                    notContains: "Không chứa",
+                    startsWith: "Bắt đầu với"
+                },
                 resetOperationText: "Thiết lập lại",
                 showAllText: "(Tất cả)",
+                showOperationChooser: true,
                 visible: true
             },
             grouping: {
@@ -93,6 +108,7 @@
             },
             noDataText: "Không có dữ liệu",
             pager: {
+                allowedPageSizes: "auto",
                 infoText: "Trang {0} của {1}",
                 showInfo: true,
                 showNavigationButtons: true,
@@ -102,21 +118,33 @@
             paging: {
                 enabled: true,
                 pageIndex: 0,
-                pageSize: 100
+                pageSize: 50
             },
             remoteOperations: {
-                grouping: false,
-                summary: false
+                paging: true,
+                filtering: true,
+                sorting: true,
+                grouping: true,
+                summary: true,
+                groupPaging: true
             },
             rowAlternationEnabled: false,
             scrolling: {
-                preloadEnabled: true
+                mode: "standard",
+                preloadEnabled: true,
+                scrollByContent: true,
+                scrollByThumb: true,
+                showScrollbar: "always",
+                useNative: "auto"
             },
             searchPanel: {
                 placeholder: "Tìm kiếm ..."
             },
             selection: {
+                allowSelectAll: true,
+                deferred: false,
                 mode: "multiple",
+                selectAllMode: "allPages",
                 showCheckBoxesMode: "onClick"
             },
             showBorders: true,
@@ -132,6 +160,7 @@
                 descendingText: "Sắp xếp Giảm dần",
                 mode: "multiple"
             },
+            twoWayBindingEnabled: false,
             wordWrapEnabled: false
         };
 

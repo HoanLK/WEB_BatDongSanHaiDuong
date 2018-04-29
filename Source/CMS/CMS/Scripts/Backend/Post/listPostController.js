@@ -3,43 +3,20 @@
 
     app.controller('listPostController', listPostController);
 
-    listPostController.$inject = ['$scope', '$http', '$window', '$cookies', 'ArrayService', 'CRUDService', 'DateTimeService', 'DevExtremeService', 'StringService'];
+    listPostController.$inject = ['$scope', '$http', '$window', 'ArrayService', 'CommonService', 'DevExtremeService', 'StringService', 'CategoryPostService', 'PostService'];
 
-    function listPostController($scope, $http, $window, $cookies, ArrayService, CRUDService, DateTimeService, DevExtremeService, StringService) {
+    function listPostController($scope, $http, $window, ArrayService, CommonService, DevExtremeService, StringService, CategoryPostService, PostService) {
         //---VAR---
         //Page
         $scope.page = {
             title: "Danh sách Bài viết"
         };
-        $scope.filter = false;
-        $scope.filterPost = {
-            Published: 1
-        };
         //Post
         $scope.posts = [];
-        $scope.tempPosts = [];
         $scope.post = {};
         $scope.selectedPosts = [];
-        var apiPost = "/API/PostAPI";
         //CategoryPost
         $scope.categoryPosts = [];
-        var apiCategoryPost = "/API/CategoryPostAPI";
-
-        //Var form Control
-        $scope.status = [
-            {
-                text: "-- Tất cả --",
-                value: null
-            },
-            {
-                text: "Xuất bản",
-                value: true
-            },
-            {
-                text: "Chưa xuất bản",
-                value: false
-            }
-        ];
 
         //---POPUP---
         //Delete
@@ -57,77 +34,54 @@
             }
         };
 
-        //---FILTER---
-        //Control
-        $scope.controlFilter = {
-
-            //SelectBox
-            Published: {
-                displayExpr: 'text',
-                valueExpr: "value",
-                searchEnabled: true,
-                noDataText: "Không có dữ liệu",
-                placeholder: "Chọn ...",
-                bindingOptions: {
-                    items: "status",
-                    value: "filterPost.Published"
-                }
-            },
-            //DateBox
-            StartDate: {
-                type: "date",
-                displayFormat: "dd/MM/yyyy",
-                bindingOptions: {
-                    value: "filterPost.StartDate"
-                }
-            },
-            EndDate: {
-                type: "date",
-                displayFormat: "dd/MM/yyyy",
-                bindingOptions: {
-                    value: "filterPost.EndDate"
-                }
-            }
-
-            //Button
-        }
-
         //---LIST---
         //Posts
         $scope.gridPosts = angular.copy(DevExtremeService.DefaultGrid);
+        $scope.gridPosts.onInitialized = function (e) {
+            $scope.gridPostsInstance = e.component;
+        };
+        $scope.gridPosts.dataSource = DevExpress.data.AspNet.createStore({
+            key: "Id",
+            loadUrl: "api/PostAPI"
+        });
         $scope.gridPosts.bindingOptions = {
-            dataSource: 'posts',
-            'columns[5].lookup.dataSource': 'categoryPosts',
-            'filterRow.visible': 'filter'
+            //dataSource: 'posts',
+            'columns[5].lookup.dataSource': 'categoryPosts'
         };
         $scope.gridPosts.columns = [
             {//0
                 caption: "ID",
                 dataField: "Id",
-                width: 90
+                minWidth: 60
             },
             {//1
                 caption: "Trạng thái",
                 dataField: "Published",
                 cellTemplate: "publishedCellTemplate",
-                width: 90
+                trueText: "Xuất bản",
+                falseText: "Chưa xuất bản",
+                minWidth: 90
             },
             {//2
                 caption: "Nổi bật",
                 dataField: "Featured",
                 cellTemplate: "featuredCellTemplate",
-                width: 90
+                trueText: "Có",
+                falseText: "Không",
+                minWidth: 90
             },
             {//3
                 caption: "Tiêu đề",
                 dataField: "Title",
-                dataType: "string"
+                dataType: "string",
+                minWidth: 150
             },
             {//4
                 caption: "Alias",
                 dataField: "Alias",
                 dataType: "string",
-                visible: false
+                visible: false,
+                minWidth: 150
             },
             {//5
                 caption: "Danh mục",
@@ -135,7 +89,8 @@
                 lookup: {
                     displayExpr: 'Title',
                     valueExpr: 'Id'
-                }
+                },
+                minWidth: 100
             },
             {//6
                 alignment: "left",
@@ -146,21 +101,22 @@
                 customizeText: function (cellInfo) {
                     return cellInfo.valueText;
                 },
-                width: 100
+                minWidth: 100
             },
             {//7
                 alignment: "center",
                 caption: "Lượt xem",
                 dataField: "Views",
                 cellTemplate: "viewsCellTemplate",
-                width: 90
+                minWidth: 90
             },
-            {//7
+            {//8
                 alignment: "left",
                 caption: "Ghi chú",
                 dataField: "Note",
                 dataType: "string",
-                visible: false
+                visible: false,
+                minWidth: 100
             }
         ];
         $scope.gridPosts.export = {
@@ -168,7 +124,7 @@
             enabled: true,
             excelFilterEnabled: true,
             excelWrapTextEnabled: true,
-            fileName: "Danh sách Danh mục bài viết",
+            fileName: "Danh sách Bài viết",
             texts: {
                 exportAll: "Xuất toàn bộ Dữ liệu",
                 exportSelectedRows: "Xuất dữ liệu đang chọn",
@@ -198,9 +154,9 @@
             var dataGrid = e.component;
 
             e.toolbarOptions.items.unshift(
-            //RIGHT
+                //RIGHT
                 {//Thêm
-                    location: "after",
+                    location: "before",
                     widget: "dxButton",
                     options: {
                         hint: "Thêm",
@@ -212,7 +168,7 @@
                     }
                 },
                 {//Sửa
-                    location: "after",
+                    location: "before",
                     widget: "dxButton",
                     options: {
                         hint: "Sửa",
@@ -224,7 +180,7 @@
                     }
                 },
                 {//Xóa
-                    location: "after",
+                    location: "before",
                     widget: "dxButton",
                     options: {
                         hint: "Xóa",
@@ -232,28 +188,6 @@
                         type: "danger",
                         onClick: function () {
                             $scope.Delete();
-                        }
-                    }
-                },
-                {//Load lại
-                    location: "after",
-                    widget: "dxButton",
-                    options: {
-                        hint: "Load lại Dữ liệu",
-                        icon: "refresh",
-                        onClick: function () {
-                            GetAllPost();
-                        }
-                    }
-                },
-                {//Lọc
-                    location: "after",
-                    widget: "dxButton",
-                    options: {
-                        hint: "Lọc dữ liệu",
-                        icon: "filter",
-                        onClick: function () {
-                            ToggleFilter();
                         }
                     }
                 }
@@ -307,67 +241,31 @@
                             $scope.Delete();
                             break;
                     }
-
                 }
             }
         };
-
 
         Init();
 
         //---FUNCTION---
         function Init() {
             //Get All Category
-            GetAllCategoryPost();
-            //Get All Post
-            GetAllPost();
+            GetCategoryPosts();
         }
 
         //Get All Category Post
-        function GetAllCategoryPost() {
-            CRUDService.Get(apiCategoryPost + "?viewmodel=true&&type=select")
+        function GetCategoryPosts() {
+            CategoryPostService.GetListViewModel('select')
                 .then(function success(response) {
-                    $scope.categoryPosts = angular.copy(CRUDService.GenMultiLevel(response.data));
+                    $scope.categoryPosts = angular.copy(CommonService.GenMultiLevel(response.data));
                 }, function error(response) {
                     toastr.error("Không lấy được Danh sách danh mục");
                 });
-
-        }
-
-        //Get All Post
-        function GetAllPost() {
-            CRUDService.Get(apiPost + '?viewmodel=true&&type=table')
-                .then(function success(response) {
-                    $scope.posts = angular.copy(response.data);
-                }, function error(response) {
-                    toastr.error("Không lấy được Danh sách bài viết");
-                });
-        }
-
-        //Get Posts
-        $scope.GetPosts = function () {
-            $scope.filterPost.StartDate = new Date($scope.filterPost.StartDate).toUTCString();
-            $scope.filterPost.EndDate = new Date($scope.filterPost.EndDate).toUTCString();
-            $scope.filterPost.ViewModel = true;
-            $scope.filterPost.Type = "table"
-
-            CRUDService.Get(apiPost + '?filter=' + $scope.filterPost)
-                .then(function success(response) {
-                    //$scope.posts = angular.copy(response.data);
-                    console.log(response.data);
-                }, function error(response) {
-                    toastr.error("Không lấy được Danh sách bài viết");
-                });
-        }
-
-        //Toggle Filter
-        function ToggleFilter() {
-            $scope.filter = !$scope.filter;
         }
 
         //Create
         $scope.Create = function () {
-            $window.location.href = '/Admin#!/post/edit';
+            PostService.RedirectCreate();
         };
         //Edit
         $scope.Edit = function () {
@@ -375,7 +273,7 @@
                 toastr.error("Chọn 1 dòng để sửa");
             } else {
                 $scope.post = angular.copy($scope.selectedPosts[0]);
-                $window.location.href = '/Admin#!/post/edit/' + $scope.post.Id;
+                PostService.RedirectEdit($scope.post.Id);
             }
         };
         //Delete
@@ -391,17 +289,13 @@
             var arrayIds = ArrayService.GetArrayIds($scope.selectedPosts);
 
             //Xóa
-            CRUDService.DeleteList(apiPost, arrayIds)
+            PostService.DeleteList(arrayIds)
                 .then(function success(response) {
-                    if (response.data === 1) {
+                    //Refresh
+                    $scope.gridPostsInstance.refresh();
 
-                        GetAllPost();
-
-                        $scope.deletePost.status = false;
-                        toastr.success("Xóa thành công");
-                    } else {
-                        toastr.error("Không thể xóa");
-                    }
+                    $scope.deletePost.status = false;
+                    toastr.success("Xóa thành công");
                 }, function error(response) {
                     toastr.error("Không thể xóa");
                 });

@@ -22,6 +22,14 @@
     <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="Views" Type="float" />
   </EntityType>
+  <EntityType Name="Aspect">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Order" Type="int" />
+  </EntityType>
   <EntityType Name="AspNetRoles">
     <Key>
       <PropertyRef Name="Id" />
@@ -127,38 +135,21 @@
     <Property Name="TimeCreated" Type="datetime" Nullable="false" />
     <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
   </EntityType>
-  <EntityType Name="Duong">
+  <EntityType Name="City">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Ten" Type="nvarchar" MaxLength="150" />
-    <Property Name="HuyenId" Type="int" />
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="HoSoPhapLyBDS">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="varchar" MaxLength="128" Nullable="false" />
-    <Property Name="Ten" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="STT" Type="int" />
-  </EntityType>
-  <EntityType Name="HuongBDS">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="varchar" MaxLength="128" Nullable="false" />
-    <Property Name="Ten" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="STT" Type="int" />
-  </EntityType>
-  <EntityType Name="Huyen">
+  <EntityType Name="District">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Ten" Type="nvarchar" MaxLength="50" />
-    <Property Name="TinhId" Type="int" />
-    <Property Name="STT" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="CityId" Type="nvarchar" MaxLength="128" />
+    <Property Name="Order" Type="int" />
   </EntityType>
   <EntityType Name="ImageBanners">
     <Key>
@@ -223,32 +214,6 @@
     <Property Name="Description" Type="nvarchar(max)" />
     <Property Name="Image" Type="nvarchar(max)" />
   </EntityType>
-  <EntityType Name="KhoangTienBDS">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="varchar" MaxLength="128" Nullable="false" />
-    <Property Name="Ten" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="Min" Type="float" />
-    <Property Name="Max" Type="float" />
-    <Property Name="STT" Type="int" />
-  </EntityType>
-  <EntityType Name="LoaiBDS">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="varchar" MaxLength="128" Nullable="false" />
-    <Property Name="Ten" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="STT" Type="int" />
-  </EntityType>
-  <EntityType Name="MucDichBDS">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="varchar" MaxLength="128" Nullable="false" />
-    <Property Name="Ten" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="STT" Type="int" />
-  </EntityType>
   <EntityType Name="Posts">
     <Key>
       <PropertyRef Name="Id" />
@@ -272,6 +237,16 @@
     <Property Name="TimeCreated" Type="datetime" Nullable="false" />
     <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="Views" Type="float" />
+  </EntityType>
+  <EntityType Name="PriceType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Min" Type="float" />
+    <Property Name="Max" Type="float" />
+    <Property Name="Order" Type="int" />
   </EntityType>
   <EntityType Name="Projects">
     <Key>
@@ -302,32 +277,35 @@
     <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="Views" Type="float" Nullable="false" />
   </EntityType>
-  <EntityType Name="TinBDS">
+  <EntityType Name="Property">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MaBDS" Type="nvarchar" MaxLength="53" StoreGeneratedPattern="Computed" />
-    <Property Name="TieuDe" Type="nvarchar" MaxLength="1024" />
-    <Property Name="NoiDung" Type="nvarchar(max)" />
-    <Property Name="TinhId" Type="int" />
-    <Property Name="HuyenId" Type="int" />
-    <Property Name="XaId" Type="int" />
-    <Property Name="DuongId" Type="int" />
-    <Property Name="LoaiBDSId" Type="varchar" MaxLength="128" />
-    <Property Name="HuongBDSId" Type="varchar" MaxLength="128" />
-    <Property Name="MucDichBDSId" Type="varchar" MaxLength="128" />
-    <Property Name="HoSoPhapLyBDSId" Type="varchar" MaxLength="128" />
-    <Property Name="KhoangTienBDSId" Type="varchar" MaxLength="128" />
-    <Property Name="GiaBan" Type="float" />
-    <Property Name="DienTichDat" Type="float" />
+    <Property Name="Code" Type="nvarchar" MaxLength="53" StoreGeneratedPattern="Computed" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="CityId" Type="int" />
+    <Property Name="DistrictId" Type="int" />
+    <Property Name="WardsId" Type="int" />
+    <Property Name="StreetId" Type="int" />
+    <Property Name="Address" Type="nvarchar" MaxLength="250" />
+    <Property Name="PropertyTypeId" Type="varchar" MaxLength="128" />
+    <Property Name="AspectId" Type="varchar" MaxLength="128" />
+    <Property Name="PriceTypeId" Type="varchar" MaxLength="128" />
+    <Property Name="Price" Type="float" />
+    <Property Name="PriceMin" Type="float" />
+    <Property Name="PriceMax" Type="float" />
+    <Property Name="Acreage" Type="float" />
+    <Property Name="AcreageMin" Type="float" />
+    <Property Name="AcreageMax" Type="float" />
     <Property Name="Published" Type="bit" Nullable="false" />
     <Property Name="Featured" Type="bit" Nullable="false" />
     <Property Name="Image" Type="nvarchar(max)" />
-    <Property Name="TenNguoiLH" Type="nvarchar" MaxLength="250" />
-    <Property Name="DiaChiLH" Type="nvarchar" MaxLength="250" />
-    <Property Name="DienThoaiLH" Type="varchar" MaxLength="50" />
-    <Property Name="EmailLH" Type="nvarchar" MaxLength="250" />
+    <Property Name="NameContact" Type="nvarchar" MaxLength="250" />
+    <Property Name="AddressContact" Type="nvarchar" MaxLength="250" />
+    <Property Name="PhoneNumberContact" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmailContact" Type="nvarchar" MaxLength="250" />
     <Property Name="Note" Type="nvarchar" MaxLength="1024" />
     <Property Name="MetaDescription" Type="nvarchar(max)" />
     <Property Name="MetaKewords" Type="nvarchar" MaxLength="250" />
@@ -337,12 +315,21 @@
     <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="Views" Type="float" Nullable="false" />
   </EntityType>
-  <EntityType Name="Tinh">
+  <EntityType Name="PropertyType">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Ten" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Order" Type="int" />
+  </EntityType>
+  <EntityType Name="Street">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="DistrictId" Type="int" />
   </EntityType>
   <EntityType Name="Videos">
     <Key>
@@ -366,14 +353,14 @@
     <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="Views" Type="float" />
   </EntityType>
-  <EntityType Name="Xa">
+  <EntityType Name="Wards">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Ten" Type="nvarchar" MaxLength="50" />
-    <Property Name="HuyenId" Type="int" />
-    <Property Name="STT" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="DistrictId" Type="int" />
+    <Property Name="Order" Type="int" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -433,6 +420,7 @@
   </Association>
   <EntityContainer Name="BDSHDModelStoreContainer">
     <EntitySet Name="AlbumImages" EntityType="Self.AlbumImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Aspect" EntityType="Self.Aspect" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
@@ -441,24 +429,21 @@
     <EntitySet Name="Banners" EntityType="Self.Banners" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CategoryPosts" EntityType="Self.CategoryPosts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CategoryProjects" EntityType="Self.CategoryProjects" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Duong" EntityType="Self.Duong" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="HoSoPhapLyBDS" EntityType="Self.HoSoPhapLyBDS" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="HuongBDS" EntityType="Self.HuongBDS" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Huyen" EntityType="Self.Huyen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ImageBanners" EntityType="Self.ImageBanners" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ImageProjects" EntityType="Self.ImageProjects" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ImageTinBDS" EntityType="Self.ImageTinBDS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InfoCompany" EntityType="Self.InfoCompany" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ItemAlbumImages" EntityType="Self.ItemAlbumImages" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="KhoangTienBDS" EntityType="Self.KhoangTienBDS" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="LoaiBDS" EntityType="Self.LoaiBDS" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="MucDichBDS" EntityType="Self.MucDichBDS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PriceType" EntityType="Self.PriceType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TinBDS" EntityType="Self.TinBDS" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Tinh" EntityType="Self.Tinh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Property" EntityType="Self.Property" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PropertyType" EntityType="Self.PropertyType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Street" EntityType="Self.Street" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Xa" EntityType="Self.Xa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Wards" EntityType="Self.Wards" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
